@@ -1,0 +1,41 @@
+Selected Employee Id : {{empid}} <button (click)="addNewRecord($event)">Add Record</button>
+<hr/>
+<amexio-row>
+  <amexio-column [size]=6>
+    <amexio-type-ahead [allow-blank]="false" 
+                      [field-label]="'First Name'"
+                      [data]="empdata"
+                      [display-field]="'firstName'"
+                      [value-field]="'id'"
+                      [(ngModel)]="empid">
+    </amexio-type-ahead>
+  </amexio-column>
+  <amexio-column [size]=6>
+    
+    <amexio-type-ahead [allow-blank]="false" 
+                      [field-label]="'Name (Used Template)'"
+                      [data]="empdata"
+                      [display-field]="'firstName'"
+                      [value-field]="'id'"
+                      [(ngModel)]="empid">
+        <ng-template #amexioBodyTmpl  let-row="row">
+            {{row.firstName}} {{row.lastName}}
+        </ng-template>                
+    </amexio-type-ahead>
+
+
+  </amexio-column>
+</amexio-row>
+ 
+<!-- 
+<amexio-typeahead [allow-blank]="false" 
+                  [field-label]="'First Name'"
+                  [data]="empdata"
+                  [display-field]="'firstName'"
+                  [value-field]="'id'"
+                  [(ngModel)]="empid">
+                  <ng-template #amexioBodyTmpl  let-row="row">
+                      {{row.firstName}} {{row.lastName}}
+                  </ng-template>                
+</amexio-typeahead>
+  -->
