@@ -1,41 +1,119 @@
-Selected Employee Id : {{empid}} <button (click)="addNewRecord($event)">Add Record</button>
-<hr/>
-<amexio-row>
-  <amexio-column [size]=6>
-    <amexio-type-ahead [allow-blank]="false" 
-                      [field-label]="'First Name'"
-                      [data]="empdata"
-                      [display-field]="'firstName'"
-                      [value-field]="'id'"
-                      [(ngModel)]="empid">
-    </amexio-type-ahead>
-  </amexio-column>
-  <amexio-column [size]=6>
-    
-    <amexio-type-ahead [allow-blank]="false" 
-                      [field-label]="'Name (Used Template)'"
-                      [data]="empdata"
-                      [display-field]="'firstName'"
-                      [value-field]="'id'"
-                      [(ngModel)]="empid">
-        <ng-template #amexioBodyTmpl  let-row="row">
-            {{row.firstName}} {{row.lastName}}
-        </ng-template>                
-    </amexio-type-ahead>
+<amexio-layout [fit]="false" [border]="true" [type]="'vertical'" [alignment]="'start'">
+  <amexio-layout-item>
+    TOP
+  </amexio-layout-item>
+  <amexio-layout-item>
+    <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'space-between'">
+      <amexio-layout-item>
+        LEFT
+      </amexio-layout-item>
+      <amexio-layout-item>
+        CENTER
+      </amexio-layout-item>
+      <amexio-layout-item>
+        RIGHT
+      </amexio-layout-item>
+    </amexio-layout>
+  </amexio-layout-item>
+  <amexio-layout-item>
+    BOTTOM
+  </amexio-layout-item>
+</amexio-layout>
+
+<br />
+
+<amexio-layout [fit]="false" [border]="true" [type]="'vertical'" [alignment]="'start'">
+  <amexio-layout-item>
+    TOP
+  </amexio-layout-item>
+  <amexio-layout-item>
+    <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
+      <amexio-layout-item>
+        LEFT
+      </amexio-layout-item>
+      <amexio-layout-item>
+        CENTER
+      </amexio-layout-item>
+      <amexio-layout-item>
+        RIGHT
+      </amexio-layout-item>
+    </amexio-layout>
+  </amexio-layout-item>
+  <amexio-layout-item>
+    <amexio-layout [border]="false" [type]="'horizontal'" [alignment]="'CENTER'">
+      <amexio-layout-item [padding]="'0px'">
+        SOUTH
+      </amexio-layout-item>
+    </amexio-layout>
+  </amexio-layout-item>
+</amexio-layout>
 
 
-  </amexio-column>
-</amexio-row>
- 
-<!-- 
-<amexio-typeahead [allow-blank]="false" 
-                  [field-label]="'First Name'"
-                  [data]="empdata"
-                  [display-field]="'firstName'"
-                  [value-field]="'id'"
-                  [(ngModel)]="empid">
-                  <ng-template #amexioBodyTmpl  let-row="row">
-                      {{row.firstName}} {{row.lastName}}
-                  </ng-template>                
-</amexio-typeahead>
-  -->
+<br />
+
+<amexio-layout [fit]="false" [border]="true" [type]="'vertical'" [alignment]="'start'">
+  <amexio-layout-item>
+    TOP
+  </amexio-layout-item>
+  <amexio-layout-item [padding]="'0px'">
+    <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'end'">
+      <amexio-layout-item>
+        LEFT
+      </amexio-layout-item>
+      <amexio-layout-item>
+        CENTER
+      </amexio-layout-item>
+      <amexio-layout-item>
+        RIGHT
+      </amexio-layout-item>
+    </amexio-layout>
+  </amexio-layout-item>
+  <amexio-layout-item>
+    <amexio-layout [border]="false" [type]="'horizontal'" [alignment]="'end'">
+      <amexio-layout-item [padding]="'0px'">
+        SOUTH
+      </amexio-layout-item>
+    </amexio-layout>
+  </amexio-layout-item>
+</amexio-layout>
+
+<br />
+
+<div style="height: 300px;">
+
+  <amexio-layout [fit]="true" [border]="false" [type]="'horizontal'" [alignment]="'space-between'">
+    <amexio-layout-item [padding]="'0px'" [fit]="true">
+      <amexio-layout [border]="true" [type]="'vertical'" [alignment]="'space-between'">
+        <amexio-layout-item *ngFor="let item of ['1','2','3']">
+          Vertical item <b>{{item}}</b>
+        </amexio-layout-item>
+      </amexio-layout>
+    </amexio-layout-item>
+
+    <amexio-layout-item [padding]="'0px 5px'" [fit]="true">
+      <amexio-layout [border]="true" [type]="'vertical'" [alignment]="'space-between'">
+        <amexio-layout-item  *ngFor="let item of ['start','center','end']">
+            <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="item">
+                <amexio-layout-item *ngFor="let litem of ['1','2']">
+                  Horizontal <b> {{item}} {{litem}}</b>
+                </amexio-layout-item>
+            </amexio-layout>
+        </amexio-layout-item>
+      </amexio-layout> 
+    </amexio-layout-item>
+
+    <amexio-layout-item [padding]="'0px 5px'"  [fit]="true">
+      <amexio-layout [border]="true" [type]="'vertical'" [alignment]="'start'">
+        <amexio-layout-item [fit]="true"  *ngFor="let alignment of  ['start','center','end','space-between','space-around','space-evenly']">
+          <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="alignment">
+            <amexio-layout-item  *ngFor="let item of ['1','2']" >
+              Hor {{alignment}} {{item}}
+            </amexio-layout-item>
+          </amexio-layout>
+        </amexio-layout-item>
+      </amexio-layout>
+    </amexio-layout-item>
+
+  </amexio-layout>
+
+</div>

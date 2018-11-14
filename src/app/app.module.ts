@@ -9,6 +9,8 @@ import { FilterPipe } from './component/pipe/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { DropDownListComponent } from './component/base/dropdownlist.component';
 import { AmexioInputHelperComponent } from './component/base/input.helper.component';
+import { AmexioLayout } from './component/layout/layout.component';
+import { AmexioLayoutItem } from './component/layout/layoutitem.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AmexioInputHelperComponent } from './component/base/input.helper.compon
     AmexioInputHelperComponent,
     AmexioTypeAheadComponent,
     FilterAndSortPipe,
-    FilterPipe
+    FilterPipe,
+    AmexioLayout,
+    AmexioLayoutItem
   ],
   imports: [
     BrowserModule,
