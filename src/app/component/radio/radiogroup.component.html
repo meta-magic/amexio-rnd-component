@@ -1,0 +1,14 @@
+<div class="inputgroup form-group">
+    <div *ngIf="fieldlabel">
+        <label>{{fieldlabel}}</label>
+    </div>
+    <ng-container *ngFor="let data of viewdata | async">
+        <label class="input-box-container">{{data[displayfield]}}
+            <input type="radio" (click)="onClick(data)" [name]="name" 
+                                 [value]="data[valuefield]" 
+                                 [(ngModel)]="value"
+                                 [checked]="(value === data[valuefield])">
+            <span class="input-box-radiobox-label"></span>
+        </label>
+    </ng-container>
+</div>

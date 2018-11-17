@@ -7,7 +7,8 @@ import { Employee } from './component/models/emp.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  empid = "2";
+  //empid = "2";
+  empid:string;
   empdata : Employee [];
 
   constructor(){

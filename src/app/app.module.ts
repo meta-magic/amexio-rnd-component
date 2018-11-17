@@ -11,10 +11,12 @@ import { DropDownListComponent } from './component/base/dropdownlist.component';
 import { AmexioInputHelperComponent } from './component/base/input.helper.component';
 import { AmexioLayout } from './component/layout/layout.component';
 import { AmexioLayoutItem } from './component/layout/layoutitem.component';
+import { RadioGroupComponent } from './component/radio/radiogroup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RadioGroupComponent,
     DropDownListComponent,
     AmexioInputHelperComponent,
     AmexioTypeAheadComponent,
