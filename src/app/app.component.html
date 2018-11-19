@@ -16,7 +16,7 @@ Form valid : {{customform.form.valid}} <br/> -->
   <amexio-text-component [field-label]="'Employee Name'" [required]="true" [name]="'empname'" [(ngModel)]="empname"></amexio-text-component>
   <br/><br/>
   <check-group [required]="true" [name]="empid" [data]="empdata" 
-               [display-field]="'firstName'" [value-field]="'id'" [field-label]="'Select Employee'"
+               [display-field]="'firstName'" [value-field]="'id'" [field-label]="'Select Atleast one employee'"
                [(ngModel)]="selectedItems">
   </check-group>
 
