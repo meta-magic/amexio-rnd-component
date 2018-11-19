@@ -12,6 +12,7 @@ import { AmexioInputHelperComponent } from './component/base/input.helper.compon
 import { AmexioLayout } from './component/layout/layout.component';
 import { AmexioLayoutItem } from './component/layout/layoutitem.component';
 import { RadioGroupComponent } from './component/radio/radiogroup.component';
+import { TextFieldComponent } from './component/textfield/textfield.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RadioGroupComponent } from './component/radio/radiogroup.component';
     FilterAndSortPipe,
     FilterPipe,
     AmexioLayout,
+    TextFieldComponent,
     AmexioLayoutItem
   ],
   imports: [

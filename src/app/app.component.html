@@ -4,7 +4,9 @@ Demo Of Radio Group with form . <br>
     <amexio-radio-group-1 [required]="true" [name]="'empid'" [(ngModel)]="empid" [data]="empdata" [display-field]="'firstName'"
       [value-field]="'id'" [field-label]="'Select Employee'">
     </amexio-radio-group-1>
+    <amexio-text-component [field-label]="'Employee Name'" [required]="true" [name]="'empname'" [(ngModel)]="empname" ></amexio-text-component>
   </form>
   <hr/>
-Employee Selected : {{empid}} <br/>
-Form valid : {{demoForm.form.valid}}
+Form valid : {{demoForm.form.valid}} <br/>
+Employee Id {{empid}}  <br/>
+Employee name {{empname}}  <br/>
