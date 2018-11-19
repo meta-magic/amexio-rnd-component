@@ -1,4 +1,5 @@
 <div class="form-group">
+    {{fieldlabel}} <br/>
         <checkbox  *ngFor="let data of viewdata | async" 
                     style="display: inline-block;"  
                     [value]="data[valuefield]"
