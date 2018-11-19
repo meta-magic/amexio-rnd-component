@@ -1,28 +1,8 @@
-<!-- 
-<form #customform="ngForm">
-  <check-group [required]="true" [name]="empid" [data]="empdata" [display-field]="'firstName'" [value-field]="'id'" [field-label]="'Select Employee'"
-    [(ngModel)]="selectedItems">
-
-  </check-group>
-</form>
-Form valid : {{customform.form.valid}} <br/> -->
-
-
-<form-component #customform>
-  <amexio-radio-group-1 required [name]="'empid'" [(ngModel)]="empid" [data]="empdata" 
-                        [display-field]="'firstName'" [value-field]="'id'" [field-label]="'Select Employee'">
-  </amexio-radio-group-1>
-  <br/>
-  <amexio-text-component [field-label]="'Employee Name'" [required]="true" [name]="'empname'" [(ngModel)]="empname"></amexio-text-component>
-  <br/><br/>
-  <check-group [required]="true" [name]="empid" [data]="empdata" 
-               [display-field]="'firstName'" [value-field]="'id'" [field-label]="'Select Atleast one employee'"
-               [(ngModel)]="selectedItems">
-  </check-group>
-
-</form-component>
-<hr/>
-<b>Custom Form Component Validation:</b> {{customform.valid()}} <br/>
-<b>Employee Id:</b> {{empid}}  <br/>
-<b>Employee name:</b> {{empname}}  <br/> 
-<b>Selected Checkbox: </b> {{selectedItems | json}}
+<grid [data]="empdata" title="Employee List" [global-filter]="true">
+  <column [title]="'ID'" [data-index]="'id'" [data-type]="'string'"></column>
+  <column [title]="'First Name'" [data-index]="'firstName'" [data-type]="'string'"></column>
+  <column [title]="'Last Name'" [data-index]="'lastName'" [data-type]="'string'"></column>
+  <column [title]="'Phone'" [data-index]="'phone'" [data-type]="'string'"></column>
+''<column [title]="'Email'" [data-index]="'email'" [data-type]="'string'"></column>
+  <column [title]="'Age'" [data-index]="'age'" [data-type]="'number'"></column>
+</grid>

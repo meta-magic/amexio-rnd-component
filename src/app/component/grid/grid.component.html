@@ -1,0 +1,19 @@
+<div class="datagrid">
+    <div class="datatabletitle">
+        {{title}}
+    </div>
+</div>
+
+<div *ngIf="globalfilter" class="inputgroup" style="padding-left: 1%; padding-right: 1%">
+    <input type="text" [(ngModel)]="globalfiltervalue" class="input-control">
+</div>
+
+<div class="datatable">
+    <div class="datatable-header">
+        <ng-content select="column"></ng-content>
+    </div>
+</div>
+<div class="datatable">
+    <row class="datatable-row" *ngFor="let row of viewdata | async | filterandsort : 'firstName' : globalfiltervalue : sortColumn"
+        [data]="row" [column-definition]="columns"></row>
+</div>

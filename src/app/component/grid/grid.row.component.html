@@ -1,0 +1,7 @@
+<!-- <div #id class="datatable-row" *ngFor="let row of viewdata | async;let i=index" id="{{'row'+i}}" (click)="onRowClick(row, i)">
+        
+    </div> -->
+    
+    <div class="datatable-col" *ngFor="let column of columns">
+        {{data[column.dataindex]}}
+    </div>

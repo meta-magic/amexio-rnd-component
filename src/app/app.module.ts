@@ -17,6 +17,9 @@ import { FormComponent } from './component/form/form.component';
 import { CustomComponentvaldiation } from './component/base/required.directive';
 import { CheckGroupComponent } from './component/checkgroup/checkgroup.component';
 import { CheckboxComponent } from './component/checkgroup/checkbox.component';
+import { GridComponent } from './component/grid/grid.component';
+import { GridColumnComponent } from './component/grid/grid.columns.component';
+import { GridRowComponent } from './component/grid/grid.row.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,11 @@ import { CheckboxComponent } from './component/checkgroup/checkbox.component';
     FormComponent,
     CustomComponentvaldiation,
     CheckGroupComponent,
-    CheckboxComponent
+    CheckboxComponent,
+
+    GridComponent,
+    GridColumnComponent,
+    GridRowComponent
   ],
   imports: [
     BrowserModule,
