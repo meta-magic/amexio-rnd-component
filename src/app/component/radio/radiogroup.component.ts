@@ -1,7 +1,7 @@
-import { Component, Input, forwardRef, ChangeDetectorRef } from "@angular/core";
+import { Component, Input, forwardRef, ChangeDetectorRef, ViewChild } from "@angular/core";
 import { ValueAccessorBase } from "../base/value-accessor";
 import { of } from 'rxjs';
-import { NG_VALUE_ACCESSOR, Validators, FormControl, NG_VALIDATORS } from "@angular/forms";
+import { NG_VALUE_ACCESSOR, Validators, FormControl, NG_VALIDATORS, NgModel } from "@angular/forms";
 @Component({
     selector: 'amexio-radio-group-1',
     templateUrl: './radiogroup.component.html',
@@ -40,6 +40,8 @@ export class RadioGroupComponent extends ValueAccessorBase<string> implements Va
 
     @Input('required') required = true;
 
+    @ViewChild(NgModel) model: NgModel;
+    
     constructor(private cd: ChangeDetectorRef) {
         super();
     }

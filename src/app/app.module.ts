@@ -13,6 +13,7 @@ import { AmexioLayout } from './component/layout/layout.component';
 import { AmexioLayoutItem } from './component/layout/layoutitem.component';
 import { RadioGroupComponent } from './component/radio/radiogroup.component';
 import { TextFieldComponent } from './component/textfield/textfield.component';
+import { FormComponent } from './component/form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TextFieldComponent } from './component/textfield/textfield.component';
     FilterPipe,
     AmexioLayout,
     TextFieldComponent,
-    AmexioLayoutItem
+    AmexioLayoutItem,
+    FormComponent
   ],
   imports: [
     BrowserModule,
