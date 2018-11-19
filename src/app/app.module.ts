@@ -15,6 +15,8 @@ import { RadioGroupComponent } from './component/radio/radiogroup.component';
 import { TextFieldComponent } from './component/textfield/textfield.component';
 import { FormComponent } from './component/form/form.component';
 import { CustomComponentvaldiation } from './component/base/required.directive';
+import { CheckGroupComponent } from './component/checkgroup/checkgroup.component';
+import { CheckboxComponent } from './component/checkgroup/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CustomComponentvaldiation } from './component/base/required.directive';
     TextFieldComponent,
     AmexioLayoutItem,
     FormComponent,
-    CustomComponentvaldiation
+    CustomComponentvaldiation,
+    CheckGroupComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
