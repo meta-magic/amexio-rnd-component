@@ -9,13 +9,10 @@ import { NG_VALUE_ACCESSOR, Validators, FormControl, NG_VALIDATORS, NgModel } fr
         provide: NG_VALUE_ACCESSOR,
         useExisting: forwardRef(() => RadioGroupComponent),
         multi: true,
-    }, {
-        provide: NG_VALIDATORS, useExisting: forwardRef(() => RadioGroupComponent), multi: true,
-
     }
     ]
 })
-export class RadioGroupComponent extends ValueAccessorBase<string> implements Validators {
+export class RadioGroupComponent extends ValueAccessorBase<string> {
 
     private _data: any;
     private viewdata: any;
@@ -51,14 +48,6 @@ export class RadioGroupComponent extends ValueAccessorBase<string> implements Va
         }
     }
 
-    public validate(c: FormControl) {
-        console.log(this.value);
-        return (this.required && (this.value && this.value.length > 0)) ? null : {
-            jsonParseError: {
-                valid: true,
-            },
-        };
-    }
-
+   
 
 }

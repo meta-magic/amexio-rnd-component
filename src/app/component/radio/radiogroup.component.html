@@ -7,7 +7,6 @@
             <input type="radio" (click)="onClick(data)" [name]="name" 
                                  [value]="data[valuefield]" 
                                  [(ngModel)]="value"
-                                 [required]="required"
                                  [checked]="(value === data[valuefield])">
             <span class="input-box-radiobox-label"></span>
         </label>

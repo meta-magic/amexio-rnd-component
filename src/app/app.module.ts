@@ -14,6 +14,7 @@ import { AmexioLayoutItem } from './component/layout/layoutitem.component';
 import { RadioGroupComponent } from './component/radio/radiogroup.component';
 import { TextFieldComponent } from './component/textfield/textfield.component';
 import { FormComponent } from './component/form/form.component';
+import { CustomComponentvaldiation } from './component/base/required.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormComponent } from './component/form/form.component';
     AmexioLayout,
     TextFieldComponent,
     AmexioLayoutItem,
-    FormComponent
+    FormComponent,
+    CustomComponentvaldiation
   ],
   imports: [
     BrowserModule,

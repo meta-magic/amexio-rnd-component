@@ -13,7 +13,7 @@ Employee name {{empname}}  <br/> -->
 
 
 <form-component #customform>
-  <amexio-radio-group-1 [required]="true" [name]="'empid'" [(ngModel)]="empid" [data]="empdata" [display-field]="'firstName'"
+  <amexio-radio-group-1 required [name]="'empid'" [(ngModel)]="empid" [data]="empdata" [display-field]="'firstName'"
     [value-field]="'id'" [field-label]="'Select Employee'">
   </amexio-radio-group-1>
   <amexio-text-component [field-label]="'Employee Name'" [required]="true" [name]="'empname'" [(ngModel)]="empname"></amexio-text-component>
