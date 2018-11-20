@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AmexioWidgetModule} from 'amexio-ng-extensions';
+import {AmexioWidgetModule, AmexiotimelineComponent} from 'amexio-ng-extensions';
 
 import { AppComponent } from './app.component';
 import { AmexioTypeAheadComponent } from './component/typeahead/typeahead.component';
@@ -20,32 +20,20 @@ import { CheckboxComponent } from './component/checkgroup/checkbox.component';
 import { GridComponent } from './component/grid/grid.component';
 import { GridColumnComponent } from './component/grid/grid.columns.component';
 import { GridRowComponent } from './component/grid/grid.row.component';
+import { AmexiotimelineeventComponent1 } from './component/timeline/amexiotimelineeventnew.component';
+import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RadioGroupComponent,
-    DropDownListComponent,
-    AmexioInputHelperComponent,
-    AmexioTypeAheadComponent,
-    FilterAndSortPipe,
-    FilterPipe,
-    AmexioLayout,
-    TextFieldComponent,
-    AmexioLayoutItem,
-    FormComponent,
-    CustomComponentvaldiation,
-    CheckGroupComponent,
-    CheckboxComponent,
-
-    GridComponent,
-    GridColumnComponent,
-    GridRowComponent
+    
+    AmexiotimelineComponent1,
+    AmexiotimelineeventComponent1
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    AmexioWidgetModule
+    AmexioWidgetModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
