@@ -3,6 +3,9 @@ import { Component, ContentChildren, EventEmitter, Input, OnInit, Output, QueryL
 @Component({
   selector: 'amexio-timeline1-event',
   templateUrl: './amexiotimelineeventnew.component.html',
+  host:{
+    class : 'timeline-item'
+  }
 })
 export class AmexiotimelineeventComponent1 {
   /*
@@ -37,8 +40,9 @@ description : This will specify the label in timeline.
 
   @Input('content-alignment') contentalignment: string;
 
+
   constructor() {
-    this.contentalignment = 'right';
+    //this.contentalignment = 'right';
   }
 
 }

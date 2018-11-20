@@ -14,6 +14,7 @@ amexio-layout amexio-layout-item {
 
 /* Timeline */
 .timeline {
+  background: cadetblue;
   list-style: none;
   padding: 20px;
   position: relative;
@@ -33,6 +34,7 @@ amexio-layout amexio-layout-item {
   margin-bottom: 20px;
   position: relative;
   width: 100%;
+  display:  block;
 }
 .timeline .timeline-item:before,
 .timeline .timeline-item:after {
@@ -65,13 +67,17 @@ amexio-layout amexio-layout-item {
 .timeline .timeline-item .timeline-panel {
   position: relative;
   width: 46%;
-  border: 1px solid #777;
-  background: #ffffff;
-  border-radius: 2px;
   padding: 10px;
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+ 
 }
+
+.timeline .timeline-item .timeline-panel-border{
+    border: 1px solid #777;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+
 .timeline .timeline-item .timeline-panel:before {
   position: absolute;
   top: 26px;
@@ -84,7 +90,9 @@ amexio-layout amexio-layout-item {
   content: " ";
 }
 
-
+.timeline-panel-right{
+    float: right;
+}
 .timeline .timeline-item .timeline-panel-right:before {
     left: -16px;
     right: auto;

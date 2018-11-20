@@ -1,19 +1,9 @@
-<!-- <div class="timeline-event-contents">
-        <div class="timeline-event-icon">
-            <amexio-pane-icon [customclass]="icon"></amexio-pane-icon>
-        </div>
-        <div [ngClass]="{'timeline-event-content': contentborder==true,'timeline-event-content2': contentborder==false}">
-            {{label}}
-             <br>
-           <ng-content></ng-content>
-         </div>
-      </div> -->
 
-<div class="container1 right1" >
-    <div class="cd-timeline__img">
-        <i class="fa fa-address-book"></i>
-    </div>
-    <div class="content1">
-        <ng-content></ng-content>
-    </div>
+<div class="timeline-badge">
+    <amexio-pane-icon [customclass]="icon"></amexio-pane-icon>
+</div>
+<div class="timeline-panel" [ngClass]="{'timeline-panel-right': (contentalignment == 'right'),'timeline-panel-border':contentborder}">
+    <div *ngIf="label"><b>{{label}} {{contentalignment}}</b></div>
+
+    <ng-content></ng-content>
 </div>
