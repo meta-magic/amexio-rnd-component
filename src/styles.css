@@ -14,9 +14,6 @@ amexio-layout amexio-layout-item {
 
 /* Timeline */
 .timeline {
-  background: rebeccapurple;
-  color: white;
-  list-style: none;
   padding: 20px;
   position: relative;
   display: block;
