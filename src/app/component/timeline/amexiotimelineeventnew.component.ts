@@ -40,6 +40,7 @@ description : This will specify the label in timeline.
 
   @Input('content-alignment') contentalignment: string;
 
+  alignment : string = 'center';
 
   constructor() {
     //this.contentalignment = 'right';

@@ -3,10 +3,7 @@ import { AmexiotimelineeventComponent1 } from './amexiotimelineeventnew.componen
 
 @Component({
   selector: 'amexio-timeline1',
-  templateUrl: './amexiotimelinenew.component.html',
-  host: {
-    class: 'timeline'
-  }
+  templateUrl: './amexiotimelinenew.component.html'
 })
 export class AmexiotimelineComponent1 implements OnInit, AfterContentInit {
 
@@ -14,6 +11,8 @@ export class AmexiotimelineComponent1 implements OnInit, AfterContentInit {
 
   @Input('content-alignment') contentalignment: string;
   
+  alignment : string = 'center';
+
   timelineevents : AmexiotimelineeventComponent1[];
   
   ngOnInit() {
@@ -27,6 +26,9 @@ export class AmexiotimelineComponent1 implements OnInit, AfterContentInit {
 
   private validateContentAlignment(){
     debugger;
+    if(this.contentalignment)
+      this.alignment = this.contentalignment;
+
     let hasContentAlignment : boolean = true;
     this.timelineevents.forEach((timeline: AmexiotimelineeventComponent1) => {
       debugger;
@@ -42,6 +44,7 @@ export class AmexiotimelineComponent1 implements OnInit, AfterContentInit {
         }else{
           timeline.contentalignment = ((index%2)==0) ? 'right':'left';
         }
+        timeline.alignment = this.alignment;
       });
     }
   }
