@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform, Injectable } from '@angular/core';
+import { GridColumnComponent } from '../grid/grid.columns.component';
 
 @Pipe({
     name: 'filterandsort',
@@ -6,32 +7,47 @@ import { Pipe, PipeTransform, Injectable } from '@angular/core';
 @Injectable()
 export class FilterAndSortPipe implements PipeTransform {
 
-  transform(items: any[], field: string, value: string, sortcolumn: string): any[] 
+  transform(data: any[], columns: GridColumnComponent[], globalfiltervalue: string, sortcolumn: string): any[] 
   {
     debugger;
-    if((value && value.length>0) && (sortcolumn && sortcolumn.length>0)){
-      return this.sort(this.filter(items, field,value),sortcolumn);
-    }else if ((value && value.length>0)){
-      return this.filter(items,field,value);
+    if((globalfiltervalue && globalfiltervalue.length>0) && (sortcolumn && sortcolumn.length>0)){
+      return this.sort(this.filter(data, columns,globalfiltervalue),sortcolumn);
+    }else if ((globalfiltervalue && globalfiltervalue.length>0)){
+      return this.filter(data,columns,globalfiltervalue);
     }else if((sortcolumn && sortcolumn.length>0)){
-      return this.sort(items,sortcolumn);
+      return this.sort(data,sortcolumn);
     }else{
-      return items;
+      return data;
     }
   }
 
-  private filter(items: any[], field: string, value: string): any[] {
+  private filter(data: any[], columns: GridColumnComponent[], value: string): any[] {
     
-    if (!items) {
+    if (!data) {
         return [];
     }
-    if (!field || !value) {
-        return items;
+    else if (!columns) {
+        return data;
     }
 
-    return items.filter(singleItem =>
-        singleItem[field].toLowerCase().includes(value.toLowerCase())
-    );
+    return data.filter(row => {
+      let hasdata : boolean;
+      if(value){
+        columns.forEach(column =>{
+          if(!hasdata){
+              hasdata = this.checkColumnValue(row,column, value);
+          }          
+        });
+      }else{
+        return true;
+      }
+      
+      return hasdata;
+    });
+  }
+
+  private  checkColumnValue(row:any, column: GridColumnComponent, value: string) : boolean{
+    return (row[column.dataindex]+"").toLowerCase().includes((value+"").toLowerCase());
   }
 
   private sort(items: any[],field: string): any {

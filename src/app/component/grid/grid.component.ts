@@ -13,6 +13,7 @@ export class GridComponent implements OnInit, AfterContentInit {
     globalfiltervalue : string;
     sortColumn : string;
     columns : GridColumnComponent[];
+    
 
     @Input('title') title : string;
 
