@@ -8,24 +8,33 @@
 <hr/> -->
 
 <form-component #formcomponent>
+  <b>Employee Info </b> <br />
   <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component>
   <br />
   <div>
-      <amexio-text-component [(ngModel)]="employee.lastname" [field-label]="'Last Name'" [name]="'lastname'" [required]="true"></amexio-text-component>
+    <amexio-text-component [(ngModel)]="employee.lastname" [field-label]="'Last Name'" [name]="'lastname'" [required]="true"></amexio-text-component>
   </div>
   <br />
+  <b>Home Address </b><br />
   <form-group-component [group]="'home'">
-    <amexio-text-component [(ngModel)]="employee.home.addressline" [field-label]="'Address Line'" [name]="'addressline'" [required]="true"></amexio-text-component>
+    <amexio-text-component [(ngModel)]="employee.home.addressline" [field-label]="'Address Line'" [name]="'addressline'"
+      [required]="true"></amexio-text-component>
     <br />
     <amexio-text-component [(ngModel)]="employee.home.pincode" [field-label]="'Pincode'" [name]="'pincode'" [required]="true"></amexio-text-component>
     <br />
-  </form-group-component>
+  </form-group-component><br />
+  <b>Office Address </b><br />
   <form-group-component [group]="'office'">
-      <amexio-text-component [(ngModel)]="employee.office.addressline" [field-label]="'Address Line'" [name]="'addressline'" [required]="true"></amexio-text-component>
-      <br />
-      <amexio-text-component [(ngModel)]="employee.office.pincode" [field-label]="'Pincode'" [name]="'pincode'" [required]="true"></amexio-text-component>
-      <br />
-    </form-group-component>
-  </form-component>
+    <amexio-text-component [(ngModel)]="employee.office.addressline" [field-label]="'Address Line'" [name]="'addressline'"
+      [required]="true"></amexio-text-component>
+    <br />
+    <amexio-text-component [(ngModel)]="employee.office.pincode" [field-label]="'Pincode'" [name]="'pincode'"
+      [required]="true"></amexio-text-component>
+    <br />
+  </form-group-component>
+</form-component>
+<br />
 {{formcomponent.form.valid}} <br />
-{{formcomponent.form.value | json}} <br />
+<pre>
+{{formcomponent.form.value | json}}
+</pre>
