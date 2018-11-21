@@ -33,4 +33,24 @@ export class AppComponent {
 class EmployeeModel {
   firstname: string;
   lastname: string;
+  home: Address;
+  office: Address;
+
+  constructor(){
+    
+    this.home = new Address();
+    this.office = new Address();
+    this.firstname = "Ketan";
+    this.lastname = "Gote";
+    this.home.addressline = "Addressline Home";
+    this.home.pincode = "123123";
+    this.office.addressline = "Addressline Office";
+    this.office.pincode = "345345";
+
+  }
+}
+
+class Address{
+  addressline : string;
+  pincode : string;
 }

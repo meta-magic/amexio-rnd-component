@@ -29,15 +29,15 @@ export class FormComponent implements OnInit, AfterViewInit {
         ngContentModels.forEach((model) => {
             this.form.control.registerControl(model.name, model.control);
         });
-        const fbs = this.fb.toArray();
-        const fbgc = fbs[0];
-        const model = fbgc.modelsarray[0];
-        
-        const fgc = {};
-        fgc[model.name]= model.control;
-        const grp = this.formBuilder.group(fgc);
-        //this.form.controls['inner'] = grp;
-        this.form.form.registerControl('inner',grp);
+        this.fb.forEach(fbnode => {
+            const modelarray = fbnode.modelsarray;
+            const fgc = {};
+            modelarray.forEach(m =>{
+                fgc[m.name]= m.control;
+            });
+            const grp = this.formBuilder.group(fgc);
+            this.form.form.registerControl(fbnode.group,grp);
+        });
         debugger;
     }
  

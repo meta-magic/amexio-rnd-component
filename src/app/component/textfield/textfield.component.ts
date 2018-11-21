@@ -34,7 +34,7 @@ export class TextFieldComponent extends ValueAccessorBase<string> implements Val
     }
 
     public validate(c: FormControl) {
-        
+        console.log(this.fieldlabel + "  "+this.required);
         return (this.required && (this.value && this.value.length > 0)) ? null : {
             jsonParseError: {
                 valid: true,
