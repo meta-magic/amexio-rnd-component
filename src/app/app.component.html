@@ -1,98 +1,22 @@
-<amexio-card [header]="true">
-  <amexio-header>
-    Time Line With Alternate variation (Default behaviour)
-  </amexio-header>
-  <amexio-body>
-    <amexio-timeline1>
-      <amexio-timeline1-event [label]="'Address'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé
-        pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num
-        significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [label]="'Home'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros gostis.
-      </amexio-timeline1-event>
-    </amexio-timeline1>
-  </amexio-body>
-</amexio-card>
-<br />
+ <!-- <form-component #demoform>
+  <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
+  <div>
+      {{form.valid}} <br/>
+    <form-group-component ngModelGroup="group" #group="ngModelGroup">
+        <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'FORM GROUp First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
+    </form-group-component>
+    </div>
+</form-component>
 
+{{demoform.form.valid | json}} <br/>
 
-<amexio-card [header]="true">
-  <amexio-header>
-    Time Line With Custom Alignment
-  </amexio-header>
-  <amexio-body>
-    <amexio-timeline1>
-      <amexio-timeline1-event [content-alignment]="'left'" [label]="'Address'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé
-        pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num
-        significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [content-alignment]="'left'" [label]="'Home'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [content-alignment]="'right'" [label]="'Address'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé
-        pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num
-        significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [content-alignment]="'left'" [label]="'Home'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros gostis.
-      </amexio-timeline1-event>
-    </amexio-timeline1>
-  </amexio-body>
-</amexio-card>
+{{demoform.form.value | json}}  -->
 
-<br /><br />
-
-<amexio-card [header]="true">
-  <amexio-header>
-      Time Line With Right Alignment
-  </amexio-header>
-  <amexio-body>
-
-    <amexio-timeline1 [content-alignment]="'right'">
-      <amexio-timeline1-event [label]="'Address'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé
-        pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num
-        significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [label]="'Home'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros gostis.
-      </amexio-timeline1-event>
-    </amexio-timeline1>
-  </amexio-body>
-</amexio-card>
-<br /><br />
-
-<amexio-card [header]="true">
-  <amexio-header>
-      Time Line With Left Alignment
-  </amexio-header>
-  <amexio-body>
-
-    <amexio-timeline1 [content-alignment]="'left'">
-      <amexio-timeline1-event [label]="'Address'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé
-        pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num
-        significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
-      </amexio-timeline1-event>
-      <amexio-timeline1-event [label]="'Home'" [icon]="'fa fa-address-book'">
-        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,
-        paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros gostis.
-      </amexio-timeline1-event>
-    </amexio-timeline1>
-  </amexio-body>
-</amexio-card>
-
-<br /><br />
+<form #form="ngForm">
+  <div>
+      {{form.valid}} <br/>
+    <form-group-component ngModelGroup="group" #group="ngModelGroup">
+        <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
+    </form-group-component>
+  </div>
+</form> 

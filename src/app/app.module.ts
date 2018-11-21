@@ -22,13 +22,16 @@ import { GridColumnComponent } from './component/grid/grid.columns.component';
 import { GridRowComponent } from './component/grid/grid.row.component';
 import { AmexiotimelineeventComponent1 } from './component/timeline/amexiotimelineeventnew.component';
 import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew.component';
+import { FormGroupComponent } from './component/form/form.group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+    TextFieldComponent,
+    FormComponent,
     AmexiotimelineComponent1,
-    AmexiotimelineeventComponent1
+    AmexiotimelineeventComponent1,
+    FormGroupComponent
   ],
   imports: [
     BrowserModule,
