@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AmexioTypeAheadComponent } from './component/typeahead/typeahead.component';
 import { FilterAndSortPipe } from './component/pipe/filterandsort.pipe';
 import { FilterPipe } from './component/pipe/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropDownListComponent } from './component/base/dropdownlist.component';
 import { AmexioInputHelperComponent } from './component/base/input.helper.component';
 import { AmexioLayout } from './component/layout/layout.component';
@@ -36,7 +36,8 @@ import { FormGroupComponent } from './component/form/form.group.component';
   imports: [
     BrowserModule,
     AmexioWidgetModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DeviceQueryService],
   bootstrap: [AppComponent]

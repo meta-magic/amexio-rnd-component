@@ -1,22 +1,19 @@
- <!-- <form-component #demoform>
-  <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
-  <div>
-      {{form.valid}} <br/>
-    <form-group-component ngModelGroup="group" #group="ngModelGroup">
-        <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'FORM GROUp First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
-    </form-group-component>
-    </div>
-</form-component>
+ 
 
-{{demoform.form.valid | json}} <br/>
-
-{{demoform.form.value | json}}  -->
-
-<form #form="ngForm">
-  <div>
-      {{form.valid}} <br/>
-    <form-group-component ngModelGroup="group" #group="ngModelGroup">
+<!-- <form #form="ngForm">
+    <form-group-component ngModelGroup="group">
         <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
     </form-group-component>
-  </div>
 </form> 
+{{form.valid}} <br/>
+{{form.value | json}} <br/>
+<hr/> -->
+
+<form-component #formcomponent>
+    <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
+    <form-group-component  [group]="'inner'">
+        <amexio-text-component [(ngModel)]="employee.lastname" [field-label]="'Last Name'" [name]="'lastname'" [required]="true"></amexio-text-component> <br/>
+    </form-group-component>    
+</form-component>
+{{formcomponent.form.valid}} <br/>
+{{formcomponent.form.value | json}} <br/>

@@ -1,20 +1,18 @@
-import { Input, Component, ContentChild, ViewChild, AfterViewInit, OnInit, ViewChildren, QueryList, forwardRef } from "@angular/core";
+import { Input, Component, ContentChild, ViewChild, AfterViewInit, OnInit, ViewChildren, QueryList, forwardRef, AfterContentInit, ContentChildren } from "@angular/core";
 import { ControlContainer, NgForm, NgModelGroup, NgModel, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
     selector: 'form-group-component',
     templateUrl: './form.group.component.html',
-    providers: [
-        {
-          provide: NG_VALUE_ACCESSOR,
-          useExisting: forwardRef(() => FormGroupComponent),
-          multi: true
-        }
-      ]
+    viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
-export class FormGroupComponent implements OnInit, AfterViewInit {
+export class FormGroupComponent implements OnInit, AfterViewInit, AfterContentInit {
 
-    @ViewChildren(NgModel) public models: QueryList<NgModel>;
+    @Input('group') group : string;
+
+    @ContentChildren(NgModel) public models: QueryList<NgModel>;
+
+    modelsarray : NgModel[];
 
     @ContentChild(NgModelGroup)
     private _group: NgModelGroup;
@@ -25,11 +23,17 @@ export class FormGroupComponent implements OnInit, AfterViewInit {
 
     }
     ngAfterViewInit() {
-        
+        //this.modelsarray = this.models.toArray();
+        debugger;
+    }
+
+    ngAfterContentInit(){
+        this.modelsarray = this.models.toArray();
+        debugger;
     }
 
     ngAfterViewChecked() {
-        if (!this._registered && this._group.control != null) {
+        if (!this._registered &&  this._group && this._group.control != null) {
             debugger;
             const ngContentModels = this.models.toArray();
             ngContentModels.forEach((model) => {
@@ -38,9 +42,9 @@ export class FormGroupComponent implements OnInit, AfterViewInit {
             });
             debugger;
             this._registered = true;
-            setTimeout(() => {
-                this._group.control.updateValueAndValidity();
-            }, 200);
+            // setTimeout(() => {
+            //     this._group.control.updateValueAndValidity();
+            // }, 200);
 
         }
     }
