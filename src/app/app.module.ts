@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AmexioWidgetModule, AmexiotimelineComponent} from 'amexio-ng-extensions';
+import {AmexioWidgetModule, AmexiotimelineComponent, DeviceQueryService} from 'amexio-ng-extensions';
 
 import { AppComponent } from './app.component';
 import { AmexioTypeAheadComponent } from './component/typeahead/typeahead.component';
@@ -35,7 +35,7 @@ import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew
     AmexioWidgetModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DeviceQueryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
