@@ -1,0 +1,44 @@
+
+
+<div class="inputgroup">
+
+    <label *ngIf="haslabel" [style.font-style]="fontstyle" [style.font-family]="fontfamily" [style.font-size]="fontsize">
+      {{fieldlabel}} 
+    </label>
+  
+    <input type="hidden" [(ngModel)]="value" name="name">
+    
+
+    <div class="input-container">
+            <em [ngClass]="prefixiconclass"></em>
+            <input type="text" class="input-control" 
+                    [ngClass]="{'input-control-error': ((model.dirty || model.touched || (value && value.length>0)) && !model.valid),
+                    'input-disabled' : disabled}"
+                    [required]="!allowblank" 
+                    [value]="displayValue"
+                    [attr.placeholder]="placeholder"
+                    [attr.disabled] = "disabled ? true: null"
+                    (focus)="focus($event)"
+                    (input)="input($event)"
+                    (keyup)="keyup($event)"
+                    (blur)="blur($event)"/>
+            <em class="input-control fa fa-caret-down"  style="position:absolute; width: auto; line-height: 2; padding: 0.250rem;" (click)="showOptions($event)"></em>
+            <em *ngIf="(iconfeedback && (model.dirty || model.touched) && model.valid)" class="fa fa-check"></em>
+            <em *ngIf="(iconfeedback && (model.dirty || model.touched) && !model.valid)" class="fa fa-times icon-error"></em>
+            <em *ngIf="suffixiconclass"  [ngClass]="suffixiconclass"></em>
+    </div>
+
+    <input-help1 *ngIf="(enablepopover && showerror)" 
+                    [error-msg]="errormsg" 
+                    [min-msg]="minmsg" 
+                    [max-msg]="maxmsg">
+    </input-help1>
+    
+    <dropdown-list-item1 class="dropdown" [ngStyle]="dropdownstyle"  
+                        [multi-select]="true"
+                        [data]="viewdata" [display-field]="displayfield" [value-field]="valuefield" 
+                        [highlight-row]="rowindex" [display-value]="displayValue" 
+                        (itemclick)="onDropDownListItemClick($event)">
+    </dropdown-list-item1>
+</div>
+  

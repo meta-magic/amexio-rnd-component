@@ -1,19 +1,16 @@
-    <ul class="dropdown-list">
-        <li  [ngClass]="{'list-items-selected': (i === highlightrow)}" 
-             class="list-items" 
-             [attr.valuefield]="item[valuefield]" 
-             [attr.displayfield]="item[displayfield]" 
-             *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue ; index as i"  
-            (mousedown)="onDropDownListClick(item)">
+<ul class="dropdown-list">
+    <li [ngClass]="{'list-items-selected': (i === highlightrow)}" class="list-items" [attr.valuefield]="item[valuefield]"
+        [attr.displayfield]="item[displayfield]" *ngFor="let item of viewdata | async | filterpipe : displayfield : displayValue ; index as i"
+        (mousedown)="onDropDownListClick(item)" (keydown.space)="onDropDownListClick(item)">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <ng-container *ngIf="!template">
-                <div>{{item[displayfield]}}</div>    
+                <div>{{item[displayfield]}}</div>
             </ng-container>
-
             <ng-container *ngIf="template">
                 <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: { text : row }, row: item }">
                 </ng-template>
             </ng-container>
-    
-        </li>
-    </ul>
-
+            <em class="fa fa-check"> </em>
+        </div>
+    </li>
+</ul>

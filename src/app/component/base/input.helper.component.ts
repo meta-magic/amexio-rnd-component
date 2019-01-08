@@ -1,7 +1,7 @@
 import { Component,Input } from '@angular/core';
 
 @Component({
-  selector: 'input-help',
+  selector: 'input-help1',
   templateUrl: './input.helper.component.html',
   styleUrls:['./input.helper.scss']
 })

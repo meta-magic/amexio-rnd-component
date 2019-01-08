@@ -23,10 +23,15 @@ import { GridRowComponent } from './component/grid/grid.row.component';
 import { AmexiotimelineeventComponent1 } from './component/timeline/amexiotimelineeventnew.component';
 import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew.component';
 import { FormGroupComponent } from './component/form/form.group.component';
+import { AmexioDropDownComponent1 } from './component/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AmexioInputHelperComponent,
+    DropDownListComponent,
+    AmexioDropDownComponent1,
+    FilterPipe,
     TextFieldComponent,
     FormComponent,
     AmexiotimelineComponent1,

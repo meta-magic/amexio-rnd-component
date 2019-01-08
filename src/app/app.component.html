@@ -1,40 +1,51 @@
-<!-- <form #form="ngForm">
-    <form-group-component ngModelGroup="group">
-        <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component> <br/>
-    </form-group-component>
-</form> 
-{{form.valid}} <br/>
-{{form.value | json}} <br/>
-<hr/> -->
+Selected Employee Id : {{empid}} <button (click)="addNewRecord($event)">Add Record</button>
+<hr/>
+<amexio-row>
+  
+  <amexio-column [size]=6>
+    
+    <amexio-dropdown1 
+    [allow-blank]="false" 
+    [field-label]="'Name'"
+    [data]="empdata"
+    [display-field]="'firstName'"
+    [value-field]="'id'"
+    [(ngModel)]="empid"></amexio-dropdown1>
+<!--
+    <amexio-type-ahead1 [allow-blank]="false" 
+                      [field-label]="'Name (Used Template)'"
+                      [data]="empdata"
+                      [display-field]="'firstName'"
+                      [value-field]="'id'"
+                      [(ngModel)]="empid">
+        <ng-template #amexioBodyTmpl  let-row="row">
+            {{row.firstName}} {{row.lastName}}
+        </ng-template>                
+    </amexio-type-ahead1>
+-->    
 
-<form-component #formcomponent>
-  <b>Employee Info </b> <br />
-  <amexio-text-component [(ngModel)]="employee.firstname" [field-label]="'First Name'" [name]="'firstname'" [required]="true"></amexio-text-component>
-  <br />
-  <div>
-    <amexio-text-component [(ngModel)]="employee.lastname" [field-label]="'Last Name'" [name]="'lastname'" [required]="true"></amexio-text-component>
-  </div>
-  <br />
-  <b>Home Address </b><br />
-  <form-group-component [group]="'home'">
-    <amexio-text-component [(ngModel)]="employee.home.addressline" [field-label]="'Address Line'" [name]="'addressline'"
-      [required]="true"></amexio-text-component>
-    <br />
-    <amexio-text-component [(ngModel)]="employee.home.pincode" [field-label]="'Pincode'" [name]="'pincode'" [required]="true"></amexio-text-component>
-    <br />
-  </form-group-component><br />
-  <b>Office Address </b><br />
-  <form-group-component [group]="'office'">
-    <amexio-text-component [(ngModel)]="employee.office.addressline" [field-label]="'Address Line'" [name]="'addressline'"
-      [required]="true"></amexio-text-component>
-    <br />
-    <amexio-text-component [(ngModel)]="employee.office.pincode" [field-label]="'Pincode'" [name]="'pincode'"
-      [required]="true"></amexio-text-component>
-    <br />
-  </form-group-component>
-</form-component>
-<br />
-{{formcomponent.form.valid}} <br />
-<pre>
-{{formcomponent.form.value | json}}
-</pre>
+  </amexio-column>
+
+  <amexio-column [size]=6>
+    <!-- <amexio-type-ahead1 [allow-blank]="false" 
+                      [field-label]="'First Name'"
+                      [data]="empdata"
+                      [display-field]="'firstName'"
+                      [value-field]="'id'"
+                      [(ngModel)]="empid">
+    </amexio-type-ahead1> -->
+  </amexio-column>
+</amexio-row>
+ 
+<!-- 
+<amexio-typeahead [allow-blank]="false" 
+                  [field-label]="'First Name'"
+                  [data]="empdata"
+                  [display-field]="'firstName'"
+                  [value-field]="'id'"
+                  [(ngModel)]="empid">
+                  <ng-template #amexioBodyTmpl  let-row="row">
+                      {{row.firstName}} {{row.lastName}}
+                  </ng-template>                
+</amexio-typeahead>
+  -->

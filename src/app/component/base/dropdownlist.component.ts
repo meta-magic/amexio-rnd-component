@@ -1,7 +1,7 @@
 import { Input, Component, Output, EventEmitter, ElementRef, OnInit, TemplateRef } from "@angular/core";
 
 @Component({
-    selector : 'dropdown-list-item',
+    selector : 'dropdown-list-item1',
     templateUrl : './dropdownlist.component.html'
 })
 export class DropDownListComponent implements OnInit{
@@ -17,7 +17,8 @@ export class DropDownListComponent implements OnInit{
     @Input('display-field') displayfield : any;
 
     @Input('display-value') displayValue : any;
-    
+
+    @Input('multi-select') multiselect : boolean;
     
     @Output() itemclick: any = new EventEmitter<any>();
 
@@ -30,7 +31,11 @@ export class DropDownListComponent implements OnInit{
     }
     onDropDownListClick(event: any){
         debugger;
-        this.itemclick.emit(event);
+        if(!this.multiselect)
+            this.itemclick.emit(event);
+        else{
+            debugger;
+        }
     }
 
     scroll(rowindex :number){
@@ -41,7 +46,6 @@ export class DropDownListComponent implements OnInit{
     }
 
     selectedItem(){
-        debugger;
         return this.elementRef.nativeElement.getElementsByClassName("list-items list-items-selected");
     }
 }
