@@ -24,6 +24,10 @@ import { AmexiotimelineeventComponent1 } from './component/timeline/amexiotimeli
 import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew.component';
 import { FormGroupComponent } from './component/form/form.group.component';
 import { AmexioDropDownComponent1 } from './component/dropdown/dropdown.component';
+import { AmexioCardDemo } from './component/cards/amexio.cards.component';
+import { AmexioCardHeaderDemo } from './component/cards/amexio.header.component';
+import { AmexioCardBodyDemo } from './component/cards/amexio.body.component';
+import { AmexioCardActionDemo } from './component/cards/amexio.action.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { AmexioDropDownComponent1 } from './component/dropdown/dropdown.componen
     FormComponent,
     AmexiotimelineComponent1,
     AmexiotimelineeventComponent1,
-    FormGroupComponent
+    FormGroupComponent,
+    AmexioCardDemo,
+    AmexioCardBodyDemo,
+    AmexioCardHeaderDemo,
+    AmexioCardActionDemo
   ],
   imports: [
     BrowserModule,

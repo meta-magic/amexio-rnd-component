@@ -1,0 +1,5 @@
+<div [ngStyle]="{'background': ' url(' + bgimage + ') no-repeat 0 0' }">
+    <header class="card-container-header" [ngStyle]="{'justify-content': (align === 'start' || align === 'end') ? 'flex-'+align:align}">
+        <ng-content></ng-content>
+    </header>
+</div>
