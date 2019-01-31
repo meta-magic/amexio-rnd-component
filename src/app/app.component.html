@@ -47,9 +47,34 @@
     </amexio-card-demo>
   </amexio-column>
 
+  <amexio-column [size]=4>
+    <amexio-card-demo>
+      <amexio-header-demo>
+        <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
+        <amexio-label size="medium-bold">John Doe </amexio-label>
+      </amexio-header-demo>
+      <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+      <amexio-body-demo>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </amexio-body-demo>
+      <amexio-floating-button style="position: absolute; bottom:24%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
+      </amexio-floating-button>
+      <amexio-action-demo [align]="'end'">
+        <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+        </amexio-button>
+        <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+        </amexio-button>
+      </amexio-action-demo>
+    </amexio-card-demo>
+  </amexio-column>
+
   <amexio-column [size]=4 [fit]="true">
     <amexio-card-demo>
-      <amexio-header-demo [bg-image]="'https://material.angular.io/assets/img/examples/shiba2.jpg'">
+      <amexio-header-demo style="color:white;" [bg-image]="'https://material.angular.io/assets/img/examples/shiba2.jpg'">
         <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
         <amexio-label size="medium-bold">John Doe </amexio-label>
       </amexio-header-demo>
@@ -69,9 +94,29 @@
     </amexio-card-demo>
   </amexio-column>
 
-
   <amexio-column [size]=4>
-    <amexio-card-demo [color]="'white'" [bg-image]="'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'">
+      <amexio-card-demo>
+        <amexio-header-demo [height]="'300px'" [color]="'white'" [bg-image]="'https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg'">
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
+
+  <amexio-column [size]=4 [fit]="true">
+    <amexio-card-demo [color]="'white'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
       <amexio-header-demo>
         <amexio-label size="medium-bold">John Doe </amexio-label>
       </amexio-header-demo>

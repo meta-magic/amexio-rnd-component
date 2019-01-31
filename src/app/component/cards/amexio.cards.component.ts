@@ -23,7 +23,8 @@ export class AmexioCardDemo implements OnInit{
     ngOnInit(){
         if(!this.color)
             this.cclass = "card-container-demo-color";
+
         if(!this.bgcolor)
-            this.cclass = this.cclass + "card-container-demo-bg-color";
+            this.cclass = this.cclass + " card-container-demo-bg-color";
     }
 }

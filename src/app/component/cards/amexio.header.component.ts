@@ -9,5 +9,9 @@ export class AmexioCardHeaderDemo {
     @Input('align') align = 'start'; // Possible values: All values which justify-content takes.
 
     @Input('bg-image') bgimage : string ;
+
+    @Input('color') color : string;
+
+    @Input('height') height : string;
     
 }
