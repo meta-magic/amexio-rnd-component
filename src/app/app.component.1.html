@@ -1,181 +1,216 @@
-<div style="padding: 10px;">
-  <amexio-layout  [border]="true" [type]="'vertical'" [alignment]="'start'">
-    <amexio-layout-item >
-      TOP
-    </amexio-layout-item>
-    <amexio-layout-item>
-      <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'space-between'">
-        <amexio-layout-item>
-          LEFT
-        </amexio-layout-item>
-        <amexio-layout-item>
-          CENTER
-        </amexio-layout-item>
-        <amexio-layout-item>
-          RIGHT
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-    <amexio-layout-item>
-      BOTTOM
-    </amexio-layout-item>
-  </amexio-layout>
-</div>
+<amexio-row>
+    <amexio-column [size]=4>
+      <amexio-card-demo>
+        <amexio-header-demo>
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
+  
+    <amexio-column [size]=4>
+      <amexio-card-demo>
+        <amexio-header-demo>
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-floating-button style="position: absolute; top:6%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
+        </amexio-floating-button>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
+  
+    <amexio-column [size]=4>
+      <amexio-card-demo>
+        <amexio-header-demo>
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-floating-button style="position: absolute; bottom:24%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
+        </amexio-floating-button>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
+  
+    <amexio-column [size]=4 [fit]="true">
+      <amexio-card-demo>
+        <amexio-header-demo style="color:white;" [bg-image]="'https://material.angular.io/assets/img/examples/shiba2.jpg'">
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
+  
+    <amexio-column [size]=4>
+        <amexio-card-demo>
+          <amexio-header-demo [height]="'300px'" [color]="'white'" [bg-image]="'https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg'">
+            <amexio-label size="medium-bold">John Doe </amexio-label>
+          </amexio-header-demo>
+          <amexio-body-demo>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </amexio-body-demo>
+          <amexio-action-demo [align]="'end'">
+            <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+            </amexio-button>
+            <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+            </amexio-button>
+          </amexio-action-demo>
+        </amexio-card-demo>
+      </amexio-column>
+  
+    <amexio-column [size]=4 [fit]="true">
+      <amexio-card-demo [color]="'white'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
+        <amexio-header-demo>
+          <amexio-label size="medium-bold">John Doe </amexio-label>
+        </amexio-header-demo>
+        <amexio-body-demo>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </amexio-body-demo>
+        <amexio-action-demo [align]="'end'">
+          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          </amexio-button>
+          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          </amexio-button>
+        </amexio-action-demo>
+      </amexio-card-demo>
+    </amexio-column>
 
-<div style="padding: 10px;">
-  <amexio-layout  [border]="true" [type]="'vertical'" [alignment]="'start'">
-    <amexio-layout-item >
-      TOP
-    </amexio-layout-item>
-    <amexio-layout-item>
-      <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-        <amexio-layout-item>
-          LEFT
-        </amexio-layout-item>
-        <amexio-layout-item>
-          CENTER
-        </amexio-layout-item>
-        <amexio-layout-item>
-          RIGHT
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-    <amexio-layout-item>
-      <amexio-layout [border]="false" [type]="'horizontal'" [alignment]="'CENTER'">
-        <amexio-layout-item [padding]="'0px'">
-          SOUTH
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-  </amexio-layout>
-</div>
+    <amexio-column [size]=4>
+        <amexio-card-demo>
+            <amexio-image width="100%" path="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"></amexio-image>
+            <amexio-floating-button style="position: absolute; top:6%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
+            </amexio-floating-button>
+            <amexio-floating-button style="position: absolute; bottom:-3%; right:-3%;" [relative]="true" [type]="'red'" [icon]="'fa fa-paperclip'">
+            </amexio-floating-button>
+            <amexio-body-demo>
+                <amexio-row>
+                    <amexio-column size="1">
 
+                    </amexio-column>
+                    <amexio-column size="10">
+                        <amexio-label size="large-bold">
+                            City Lights in New York
+                        </amexio-label>
+                        <amexio-label size="medium" font-color="red">
+                            The city that never sleeps.
+                        </amexio-label>
+                        <amexio-label size="medium">
+                            New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.
+                        </amexio-label>
+                    </amexio-column>
+                    <amexio-column size="1">
 
-<div style="padding: 10px;">
-  <amexio-layout  [border]="true" [type]="'vertical'" [alignment]="'start'">
-    <amexio-layout-item >
-      TOP
-    </amexio-layout-item>
-    <amexio-layout-item [padding]="'0px'">
-      <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'end'">
-        <amexio-layout-item>
-          LEFT
-        </amexio-layout-item>
-        <amexio-layout-item>
-          CENTER
-        </amexio-layout-item>
-        <amexio-layout-item>
-          RIGHT
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-    <amexio-layout-item>
-      <amexio-layout [border]="false" [type]="'horizontal'" [alignment]="'end'">
-        <amexio-layout-item [padding]="'0px'">
-          SOUTH
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-  </amexio-layout>
-</div>
+                    </amexio-column>
+                </amexio-row>
 
-<div style="padding: 10px; height: 300px;">
-
-  <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'space-between'">
-    <amexio-layout-item  [fit]="true">
-      <amexio-layout [border]="true" [type]="'vertical'" [alignment]="'space-between'">
-        <amexio-layout-item>
-          Item 1
-        </amexio-layout-item>
-        <amexio-layout-item>
-          Item 2
-        </amexio-layout-item>
-        <amexio-layout-item>
-          Item 3
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-    <amexio-layout-item>
-      <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-        <amexio-layout-item>
-          Item 1
-        </amexio-layout-item>
-        <amexio-layout-item>
-          Item 2
-        </amexio-layout-item>
-        <amexio-layout-item>
-          Item 1
-        </amexio-layout-item>
-        <amexio-layout-item>
-          Item 1
-        </amexio-layout-item>
-      </amexio-layout>
-    </amexio-layout-item>
-    <amexio-layout-item>
-        <amexio-layout [border]="true" [type]="'vertical'" [alignment]="'start'">
-            <amexio-layout-item [fit]="true">
-                <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-     
-                    <amexio-layout-item>
-                      Item 2
-                    </amexio-layout-item>
-                    <amexio-layout-item>
-                      Item 1
-                    </amexio-layout-item>
-                    <amexio-layout-item>
-                      Item 1
-                    </amexio-layout-item>
-                  </amexio-layout>
-              
-            </amexio-layout-item>
-            <amexio-layout-item >
-                <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-     
-                    <amexio-layout-item>
-                      Item 2
-                    </amexio-layout-item>
-                    <amexio-layout-item>
-                      Item 1
-                    </amexio-layout-item>
-                    <amexio-layout-item>
-                      Item 1
-                    </amexio-layout-item>
-                  </amexio-layout>
-              
-              </amexio-layout-item>
-              <amexio-layout-item >
-                  <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-     
-                      <amexio-layout-item>
-                        Item 2
-                      </amexio-layout-item>
-                      <amexio-layout-item>
-                        Item 1
-                      </amexio-layout-item>
-                      <amexio-layout-item>
-                        Item 1
-                      </amexio-layout-item>
-                    </amexio-layout>
-                
-                </amexio-layout-item>
-            </amexio-layout>                
-
-    </amexio-layout-item>
-    <amexio-layout-item [fit]="true">
-    <amexio-layout [border]="true" [type]="'horizontal'" [alignment]="'start'">
-     
-      <amexio-layout-item>
-        Item 2
-      </amexio-layout-item>
-      <amexio-layout-item>
-        Item 1
-      </amexio-layout-item>
-      <amexio-layout-item>
-        Item 1
-      </amexio-layout-item>
-    </amexio-layout>
-  </amexio-layout-item>
-
-  </amexio-layout>
-
-</div>
+            </amexio-body-demo>
+            <amexio-action-demo [align]="'center'">
+                <amexio-image [icon-class]="'fa fa-clock-o fa-2x'" [tooltip]="'time'"></amexio-image>
+                <amexio-label size="small">
+                    6 mins ago
+                </amexio-label>
+                <amexio-image [icon-class]="'fa fa-comments fa-2x'" [tooltip]="'Comments'"></amexio-image>
+                <amexio-label size="small">
+                    39 comments
+                </amexio-label>
+            </amexio-action-demo>
+        </amexio-card-demo>
+    </amexio-column>
+    <amexio-column [size]=4>
+        <amexio-card-demo [color]="'white'" width="100%" height="100%" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
+            <amexio-body-demo>
+                <amexio-row>
+                    <amexio-column size="5">
+                        <amexio-label size="small">
+                            12 Aug 2018
+                        </amexio-label>
+                    </amexio-column>
+                    <amexio-column size="4"></amexio-column>
+                    <amexio-column size="3">
+                        <amexio-image [icon-class]="'fa fa-bookmark-o fa-2x'" [tooltip]="'Comments'"></amexio-image>&nbsp;
+                        <amexio-image [icon-class]="'fa fa-heart-o fa-2x'" [tooltip]="'Comments'"></amexio-image>&nbsp;
+                        <amexio-image [icon-class]="'fa fa-comment-o fa-2x'" [tooltip]="'Comments'"></amexio-image>
+                    </amexio-column>
+                </amexio-row>
+                <amexio-label size="large-bold">
+                    City Lights in New York
+                </amexio-label>
+                <amexio-label size="medium" font-color="red">
+                    The city that never sleeps.
+                </amexio-label>
+                <amexio-label size="medium">
+                    New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers. New York, the largest city in the U.S., is an architectural marvel with plenty of historic
+                    monuments, magnificent buildings and countless dazzling skyscrapers. New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.
+                </amexio-label>
+            </amexio-body-demo>
+            <amexio-action-demo [align]="'end'">
+                <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+                </amexio-button>
+                <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+                </amexio-button>
+            </amexio-action-demo>
+        </amexio-card-demo>
+    </amexio-column>
+    
+  </amexio-row>
