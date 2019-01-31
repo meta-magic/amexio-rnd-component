@@ -3,9 +3,9 @@
       <amexio-card-demo>
         <amexio-header-demo>
           <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
-          <amexio-label size="medium-bold">John Doe </amexio-label>
+          <amexio-label size="medium-bold">Shiba Inu </amexio-label>
         </amexio-header-demo>
-        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-image width="100%" height="300px" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
         <amexio-body-demo>
           <p>
             The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -22,26 +22,24 @@
       </amexio-card-demo>
     </amexio-column>
   
-    <amexio-column [size]=4>
+    <amexio-column [size]=4 [fit]="true">
       <amexio-card-demo>
         <amexio-header-demo>
-          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
-          <amexio-label size="medium-bold">John Doe </amexio-label>
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/022014/triumph_motorcycles_2013.jpg?itok=rysgr_NR"></amexio-image>
+          <amexio-label size="medium-bold">2019 Triumph Bonneville T120 </amexio-label>
         </amexio-header-demo>
-        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-image width="100%" path="http://imagesvc.timeincapp.com/v3/foundry/image/?q=70&w=1440&url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F12%2F3201_spt_2019_20191540_original-2.jpg%3Fquality%3D85"></amexio-image>
         <amexio-floating-button style="position: absolute; top:6%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
         </amexio-floating-button>
         <amexio-body-demo>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+              It accomplishes that goal with unique finishes and a limited production run. Let’s take a look at what makes the 2019 Triumph Bonneville T120 Diamond Edition a special motorcycle.
           </p>
         </amexio-body-demo>
         <amexio-action-demo [align]="'end'">
-          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+          <amexio-button [label]="'BUY'" [type]="'transparent'" [tooltip]="'BUY'">
           </amexio-button>
-          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
+          <amexio-button [label]="'SELL'" [type]="'transparent'" [tooltip]="'SELL'">
           </amexio-button>
         </amexio-action-demo>
       </amexio-card-demo>
@@ -50,24 +48,18 @@
     <amexio-column [size]=4>
       <amexio-card-demo>
         <amexio-header-demo>
-          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
-          <amexio-label size="medium-bold">John Doe </amexio-label>
+          <amexio-image width="50px" height="50px" [filter]="'round'" path="https://moneyinc.com/wp-content/uploads/2016/11/Ferrari-Logo-750x469.jpg"></amexio-image>
+          <amexio-label size="medium-bold">Ferrari SP 38</amexio-label>
         </amexio-header-demo>
-        <amexio-image width="100%" path="https://material.angular.io/assets/img/examples/shiba2.jpg"></amexio-image>
+        <amexio-image width="100%" path="http://corporate.ferrari.com/sites/ferrari15ipo/files/home_slide_images/_ferrari-sp38_4_35.jpg"></amexio-image>
         <amexio-body-demo>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+              Designed by the Ferrari Design Centre on the chassis and running gear of the 488 GTB, this unique car reflects the specific vision of a client with a deep passion for racing. The result is a model that can be driven both on road and on track, while at the same time expressing all the beauty and innovation inherent in Ferrari’s road cars.
           </p>
         </amexio-body-demo>
-        <amexio-floating-button style="position: absolute; bottom:24%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
-        </amexio-floating-button>
         <amexio-action-demo [align]="'end'">
-          <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
-          </amexio-button>
-          <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
-          </amexio-button>
+            <amexio-floating-button  [relative]="true" [type]="'red'" [icon]="'fa fa-shopping-cart'">
+              </amexio-floating-button>
         </amexio-action-demo>
       </amexio-card-demo>
     </amexio-column>
@@ -96,21 +88,18 @@
   
     <amexio-column [size]=4>
         <amexio-card-demo>
-          <amexio-header-demo [height]="'300px'" [color]="'white'" [bg-image]="'https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg'">
-            <amexio-label size="medium-bold">John Doe </amexio-label>
+          <amexio-header-demo [height]="'300px'" [color]="'white'" [bg-image]="'https://www.weekendthrill.com/wp-content/uploads/2017/02/3-1.jpg'">
+            <amexio-label size="medium-bold">2011 Leh Ladhak </amexio-label>
           </amexio-header-demo>
           <amexio-body-demo>
             <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
+                Ladakh is a region in the Indian state of Jammu and Kashmir that currently extends from the Siachen Glacier in the Karakoram range to the main Great Himalayas to the south, inhabited by people of Indo-Aryan and Tibetan descent.
             </p>
           </amexio-body-demo>
           <amexio-action-demo [align]="'end'">
-            <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
+            <amexio-button [label]="'READ MORE'" [type]="'transparent'" [tooltip]="'READ MORE'">
             </amexio-button>
-            <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
-            </amexio-button>
+           
           </amexio-action-demo>
         </amexio-card-demo>
       </amexio-column>
@@ -136,81 +125,5 @@
       </amexio-card-demo>
     </amexio-column>
 
-    <amexio-column [size]=4>
-        <amexio-card-demo>
-            <amexio-image width="100%" path="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"></amexio-image>
-            <amexio-floating-button style="position: absolute; top:6%; right:5%;" [relative]="true" [type]="'red'" [icon]="'fa fa-plus'">
-            </amexio-floating-button>
-            <amexio-floating-button style="position: absolute; bottom:-3%; right:-3%;" [relative]="true" [type]="'red'" [icon]="'fa fa-paperclip'">
-            </amexio-floating-button>
-            <amexio-body-demo>
-                <amexio-row>
-                    <amexio-column size="1">
-
-                    </amexio-column>
-                    <amexio-column size="10">
-                        <amexio-label size="large-bold">
-                            City Lights in New York
-                        </amexio-label>
-                        <amexio-label size="medium" font-color="red">
-                            The city that never sleeps.
-                        </amexio-label>
-                        <amexio-label size="medium">
-                            New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.
-                        </amexio-label>
-                    </amexio-column>
-                    <amexio-column size="1">
-
-                    </amexio-column>
-                </amexio-row>
-
-            </amexio-body-demo>
-            <amexio-action-demo [align]="'center'">
-                <amexio-image [icon-class]="'fa fa-clock-o fa-2x'" [tooltip]="'time'"></amexio-image>
-                <amexio-label size="small">
-                    6 mins ago
-                </amexio-label>
-                <amexio-image [icon-class]="'fa fa-comments fa-2x'" [tooltip]="'Comments'"></amexio-image>
-                <amexio-label size="small">
-                    39 comments
-                </amexio-label>
-            </amexio-action-demo>
-        </amexio-card-demo>
-    </amexio-column>
-    <amexio-column [size]=4>
-        <amexio-card-demo [color]="'white'" width="100%" height="100%" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
-            <amexio-body-demo>
-                <amexio-row>
-                    <amexio-column size="5">
-                        <amexio-label size="small">
-                            12 Aug 2018
-                        </amexio-label>
-                    </amexio-column>
-                    <amexio-column size="4"></amexio-column>
-                    <amexio-column size="3">
-                        <amexio-image [icon-class]="'fa fa-bookmark-o fa-2x'" [tooltip]="'Comments'"></amexio-image>&nbsp;
-                        <amexio-image [icon-class]="'fa fa-heart-o fa-2x'" [tooltip]="'Comments'"></amexio-image>&nbsp;
-                        <amexio-image [icon-class]="'fa fa-comment-o fa-2x'" [tooltip]="'Comments'"></amexio-image>
-                    </amexio-column>
-                </amexio-row>
-                <amexio-label size="large-bold">
-                    City Lights in New York
-                </amexio-label>
-                <amexio-label size="medium" font-color="red">
-                    The city that never sleeps.
-                </amexio-label>
-                <amexio-label size="medium">
-                    New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers. New York, the largest city in the U.S., is an architectural marvel with plenty of historic
-                    monuments, magnificent buildings and countless dazzling skyscrapers. New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.
-                </amexio-label>
-            </amexio-body-demo>
-            <amexio-action-demo [align]="'end'">
-                <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
-                </amexio-button>
-                <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
-                </amexio-button>
-            </amexio-action-demo>
-        </amexio-card-demo>
-    </amexio-column>
     
   </amexio-row>
