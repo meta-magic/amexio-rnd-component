@@ -6,7 +6,7 @@ import { Component, HostBinding } from "@angular/core";
 })
 export class AmexioCardBodyDemo {
 
-   // @HostBinding('attr.class') cardclass = 'card-container-body';
+    @HostBinding('attr.class') cardclass = 'card-container-body';
 
     
 }

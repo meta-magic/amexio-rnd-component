@@ -1,4 +1,6 @@
-<div [ngStyle]="{'background': ' url(' + bgimage + ') no-repeat 0 0' }">
+<div [ngStyle]="{'background': bgimage ? 'url(' + bgimage + ') no-repeat 0 0' : null, 'color':color }"
+     [ngClass]="cclass"
+     class="card-container-demo">
         <ng-content></ng-content>
 </div>
 <!-- 
