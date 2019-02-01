@@ -28,6 +28,7 @@ import { AmexioCardDemo } from './component/cards/amexio.cards.component';
 import { AmexioCardHeaderDemo } from './component/cards/amexio.header.component';
 import { AmexioCardBodyDemo } from './component/cards/amexio.body.component';
 import { AmexioCardActionDemo } from './component/cards/amexio.action.component';
+import { AmexioBadgeComponent } from './component/badge/badge.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AmexioCardActionDemo } from './component/cards/amexio.action.component'
     AmexioCardDemo,
     AmexioCardBodyDemo,
     AmexioCardHeaderDemo,
-    AmexioCardActionDemo
+    AmexioCardActionDemo,
+    AmexioBadgeComponent
   ],
   imports: [
     BrowserModule,
