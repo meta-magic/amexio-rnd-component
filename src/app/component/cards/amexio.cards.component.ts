@@ -68,6 +68,8 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
       if (this.amexioCardActionList[0]  !== undefined && !this.amexioCardActionList[0].align &&
          this.amexioCardActionList[0].align.length > 0) {
         this.amexioCardActionList[0].align = this.align;
+      } else if (this.amexioCardActionList[0].align  === undefined || this.amexioCardActionList[0].align === ''){
+        this.amexioCardActionList[0].align = 'end';
       }
 
     }
