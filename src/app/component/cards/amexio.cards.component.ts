@@ -54,7 +54,6 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
     // TO SET ALIGN TO ALL INNER COMPONENT IN CARD
     setCardAligementForAllInnerComponent() {
       this.amexioCardHeaderList = this.amexioCardHeaderDemoQueryList.toArray();
-      debugger;
       if (this.amexioCardHeaderList[0] && !this.amexioCardHeaderList[0].align) {
         this.amexioCardHeaderList[0].align = this.align;
       } else {
