@@ -57,23 +57,18 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
       if (this.amexioCardHeaderList[0] !== undefined && !this.amexioCardHeaderList[0].align &&
         this.amexioCardHeaderList[0].align.length > 0) {
         this.amexioCardHeaderList[0].align = this.align;
-      } else if (this.amexioCardHeaderList[0] !== undefined ) {
-        this.amexioCardHeaderList[0].align = 'start';
       }
 
       this.amexioCardBodyList = this.amexioCardBodyDemoQueryList.toArray();
       if (this.amexioCardBodyList[0]  !== undefined && !this.amexioCardBodyList[0].align && this.amexioCardBodyList[0].align.length > 0) {
         this.amexioCardBodyList[0].align = this.align;
-      } else if (this.amexioCardBodyList[0]  !== undefined) {
-        this.amexioCardBodyList[0].align = 'start';
       }
 
       this.amexioCardActionList = this.amexioCardActionDemoQueryList.toArray();
       if (this.amexioCardActionList[0]  !== undefined && !this.amexioCardActionList[0].align &&
          this.amexioCardActionList[0].align.length > 0) {
         this.amexioCardActionList[0].align = this.align;
-      } else if(this.amexioCardActionList[0]  !== undefined) {
-        this.amexioCardActionList[0].align = 'right';
       }
+
     }
 }

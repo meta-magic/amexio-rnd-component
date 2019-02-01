@@ -1,25 +1,4 @@
 <amexio-row>
-    <amexio-column size="4">
-        <amexio-card-demo>
-            <amexio-image width="100%" path="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"></amexio-image>
-            <amexio-body-demo>
-                <amexio-label [size]="'large'" [font-color]="'#212529'">
-                    Card title
-                </amexio-label>
-                <amexio-label>
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                </amexio-label>
-            </amexio-body-demo>
-            <amexio-action-demo [align]="'start'">
-                <amexio-button [label]="'LIKE'" [bg-color]="'#4285f4'" [color]="'#fff'" [size]="'large'" [tooltip]="'LIKE'">
-                </amexio-button>
-
-            </amexio-action-demo>
-        </amexio-card-demo>
-    </amexio-column>
-
-</amexio-row>
-<amexio-row>
     <amexio-column [size]=4>
         <amexio-card-demo>
             <amexio-header-demo>
@@ -96,7 +75,7 @@
 
     <amexio-column [size]=4 [fit]="true">
         <amexio-card-demo>
-            <amexio-header-demo style="color:white;" [bg-image]="'https://material.angular.io/assets/img/examples/shiba2.jpg'">
+            <amexio-header-demo [align]="'space-between'" style="color:white;" [bg-image]="'https://material.angular.io/assets/img/examples/shiba2.jpg'">
                 <amexio-image width="50px" height="50px" [filter]="'round'" path="https://material.angular.io/assets/img/examples/shiba1.jpg"></amexio-image>
                 <amexio-label size="medium-bold">John Doe </amexio-label>
             </amexio-header-demo>
@@ -138,7 +117,7 @@
     </amexio-column>
 
     <amexio-column [size]=4 [fit]="true">
-        <amexio-card-demo [color]="'white'" [bg-color]="'rgba(0,0,0,.7)'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
+        <amexio-card-demo [color]="'white'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
             <amexio-header-demo [align]="'space-between'">
                 <amexio-label size="medium-bold">John Doe </amexio-label>
                 <amexio-layout-columns [orientation]="'horizontal'" [border]="false">
@@ -158,7 +137,7 @@
                     The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
                 </p>
             </amexio-body-demo>
-            <amexio-action-demo [align]="'end'">
+            <amexio-action-demo>
                 <amexio-button [label]="'LIKE'" [type]="'transparent'" [tooltip]="'LIKE'">
                 </amexio-button>
                 <amexio-button [label]="'SHARE'" [type]="'transparent'" [tooltip]="'SHARE'">
@@ -168,4 +147,42 @@
     </amexio-column>
 
 
+</amexio-row>
+<amexio-row>
+    <amexio-column size="4">
+        <amexio-card-demo>
+            <amexio-image width="100%" path="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"></amexio-image>
+            <amexio-body-demo>
+                <amexio-label [size]="'large'" [font-color]="'#212529'">
+                    Card title
+                </amexio-label>
+                <amexio-label>
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </amexio-label>
+            </amexio-body-demo>
+            <amexio-action-demo [align]="'start'">
+                <amexio-button [label]="'LIKE'" [bg-color]="'#4285f4'" [color]="'#fff'" [size]="'large'" [tooltip]="'LIKE'">
+                </amexio-button>
+
+            </amexio-action-demo>
+        </amexio-card-demo>
+    </amexio-column>
+    <amexio-column size="4">
+        <amexio-card-demo>
+            <amexio-header-demo [bg-color]="'#5c6bc0'" [height]="'250px'">
+
+            </amexio-header-demo>
+            <amexio-image width="70px" height="70px" path="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"></amexio-image>
+            <amexio-body-demo align="center">
+                <amexio-label [size]="'large'" [font-color]="'#212529'">
+                    Jolly John
+                </amexio-label>
+            </amexio-body-demo>
+            <amexio-action-demo [align]="'start'">
+                <amexio-image [icon-class]="'fa fa-quote-left fa-2x'" [tooltip]="'Fontawesome apple'"></amexio-image>
+                <amexio-label>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci </amexio-label>
+            </amexio-action-demo>
+        </amexio-card-demo>
+    </amexio-column>
 </amexio-row>
