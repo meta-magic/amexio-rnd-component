@@ -1,3 +1,5 @@
-<footer class="card-container-footer" [ngStyle]="{'justify-content': (align === 'start' || align === 'end') ? 'flex-'+align:align}">
-    <ng-content></ng-content>
-</footer>
+<div [ngStyle]="{'background': ' url(' + bgimage + ') center/cover no-repeat', 'color': color, 'height': height }" [ngClass]="cclass">
+    <footer class="card-container-footer" [ngStyle]="{'justify-content': (align === 'start' || align === 'end') ? 'flex-'+align:align}">
+        <ng-content></ng-content>
+    </footer>
+</div>
