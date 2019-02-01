@@ -20,7 +20,7 @@ export class AppComponent {
       {
       'name': 'Sagar Jadhav',
       'description': 'Angular, Java, Microservices',
-      'imagepath': 'https://media.licdn.com/dms/image/C5103AQF3EDkCcxqsnQ/profile-displayphoto-shrink_100_100/0?e=1554336000&v=beta&t=RhxgAziI4yMWqftaeq6WPvMlSKJgWSzZH5c6H5zT6Yc'
+      'imagepath': 'https://media.licdn.com/dms/image/C5103AQF3EDkCcxqsnQ/profile-displayphoto-shrink_100_100/0?e=1554336000&v=beta&t=RhxgAziI4yMWqftaeq6WPvMlSKJgWSzZH5c6H5zT6Yc',
       'bgcolor': 'linear-gradient(40deg,#141E30,#243B55)'
     },
     {

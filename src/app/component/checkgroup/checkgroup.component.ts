@@ -11,9 +11,9 @@ import { of } from "rxjs";
           provide: NG_VALUE_ACCESSOR,
           useExisting: forwardRef(() => CheckGroupComponent),
           multi: true
-        },, {
+        }, {
             provide: NG_VALIDATORS, useExisting: forwardRef(() => CheckGroupComponent), multi: true,
-    
+
         }
     ]
 })
@@ -61,7 +61,7 @@ export class CheckGroupComponent extends ValueAccessorBase<any> implements OnIni
     }
 
     contains(value: any): boolean {
-        
+
         if (this._model instanceof Array) {
             return this._model.indexOf(value) > -1;
         } else if (!!this._model) {
@@ -99,6 +99,6 @@ export class CheckGroupComponent extends ValueAccessorBase<any> implements OnIni
             },
         };
     }
-    
+
 
 }

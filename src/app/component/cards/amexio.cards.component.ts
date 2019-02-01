@@ -21,6 +21,8 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
 
     @Input('align') align: string;
 
+    @Input('style-type') styleType: string;
+
     private cclass: string;
 
     @ContentChildren(AmexioCardHeaderDemo) amexioCardHeaderDemoQueryList: QueryList<AmexioCardHeaderDemo>;
@@ -45,6 +47,12 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
         if (!this.bgcolor) {
           this.cclass = this.cclass + ' card-container-demo-bg-color';
         }
+        if (this.styleType && this.styleType === 'wider') {
+          this.cclass = this.cclass + ' card-container-wider';
+        }
+        if (this.styleType && this.styleType === 'narrower') {
+          this.cclass = this.cclass + ' card-container-narrower';
+        }
     }
 
     ngAfterContentInit() {
@@ -68,7 +76,8 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
       if (this.amexioCardActionList[0]  !== undefined && !this.amexioCardActionList[0].align &&
          this.amexioCardActionList[0].align.length > 0) {
         this.amexioCardActionList[0].align = this.align;
-      } else if (this.amexioCardActionList[0].align  === undefined || this.amexioCardActionList[0].align === ''){
+      } else if (this.amexioCardActionList[0] !== undefined &&
+        this.amexioCardActionList[0].align === '') {
         this.amexioCardActionList[0].align = 'end';
       }
 
