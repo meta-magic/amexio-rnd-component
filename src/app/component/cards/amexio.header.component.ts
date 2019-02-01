@@ -18,6 +18,8 @@ export class AmexioCardHeaderDemo implements OnInit {
 
     @Input('border-bottom') borderbottom: boolean;
 
+    @Input('direction') direction: string = "row";
+
     cclass = '';
 
     ngOnInit() {

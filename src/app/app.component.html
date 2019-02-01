@@ -150,24 +150,35 @@
         </amexio-card-demo>
     </amexio-column>
     <amexio-column size="3" [fit]="true">
-        <amexio-card-demo [style-type]="'wider'">
-            <amexio-header-demo [bg-color]="'linear-gradient(40deg,green,yellow)'">
-                <amexio-label [size]="'large'">
-                    John Doe
-                </amexio-label>
-            </amexio-header-demo>
-            <amexio-body-demo>
-                <p>
-                    "John Doe" and "Jane Doe" are multiple-use names that are used when the true name of a person is unknown or is being intentionally concealed. In the context of law enforcement in the United States, such names are often used to refer to a corpse whose
-                    identity is unknown or unconfirmed.
-                </p>
-            </amexio-body-demo>
-            <amexio-action-demo [align]="'space-between'" [bg-color]="'black'" [color]="'white'">
-                <amexio-image [icon-class]="'fa fa-heart fa-2x'"></amexio-image>
-                <amexio-image [icon-class]="'fa fa-comments fa-2x'"></amexio-image>
-                <amexio-image [icon-class]="'fa fa-share-alt fa-2x'"></amexio-image>
-            </amexio-action-demo>
-        </amexio-card-demo>
+            <amexio-card-demo [style-type]="'wider'">
+                    <amexio-header-demo [color]="'white'" [direction]="'column'" [align]="'center'" [bg-color]="'linear-gradient(to right, #2C5364, #203A43, #0F2027)'">
+                        <amexio-label [size]="'large'">
+                            John Doe
+                        </amexio-label>
+                        <amexio-label [size]="'medium'">
+                            Follow me
+                        </amexio-label>
+                        <amexio-layout-columns [border]="false" [fit]="true" [alignment]="'space-between'" [orientation]="'horizontal'">
+                            <amexio-layout-item>
+                                <amexio-floating-button [relative]="true" [icon]="'fa fa-google-plus  fa-2x'"></amexio-floating-button>
+                            </amexio-layout-item>
+                            <amexio-layout-item>
+                                <amexio-floating-button [relative]="true" [icon]="'fa fa-facebook fa-2x'"></amexio-floating-button>
+                            </amexio-layout-item>
+                            <amexio-layout-item>
+                                <amexio-floating-button [relative]="true" [icon]="'fa fa-linkedin fa-2x'"></amexio-floating-button>
+                            </amexio-layout-item>
+                        </amexio-layout-columns>
+                    </amexio-header-demo>
+                    <amexio-body-demo>
+                        <p>
+                            "John Doe" and "Jane Doe" are multiple-use names that are used when the true name of a person is
+                            unknown or is being intentionally concealed. In the context of law enforcement in the United
+                            States, such names are often used to refer to a corpse whose
+                            identity is unknown or unconfirmed.
+                        </p>
+                    </amexio-body-demo>
+                </amexio-card-demo>
     </amexio-column>
     <amexio-column size="3" [fit]="true">
         <amexio-card-demo [style-type]="'narrower'" [align]="'center'">
