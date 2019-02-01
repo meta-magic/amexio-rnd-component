@@ -1,4 +1,25 @@
 <amexio-row>
+    <amexio-column size="4">
+        <amexio-card-demo>
+            <amexio-image width="100%" path="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"></amexio-image>
+            <amexio-body-demo>
+                <amexio-label [size]="'large'" [font-color]="'#212529'">
+                    Card title
+                </amexio-label>
+                <amexio-label>
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </amexio-label>
+            </amexio-body-demo>
+            <amexio-action-demo [align]="'start'">
+                <amexio-button [label]="'LIKE'" [bg-color]="'#4285f4'" [color]="'#fff'" [size]="'large'" [tooltip]="'LIKE'">
+                </amexio-button>
+
+            </amexio-action-demo>
+        </amexio-card-demo>
+    </amexio-column>
+
+</amexio-row>
+<amexio-row>
     <amexio-column [size]=4>
         <amexio-card-demo>
             <amexio-header-demo>
@@ -117,7 +138,7 @@
     </amexio-column>
 
     <amexio-column [size]=4 [fit]="true">
-        <amexio-card-demo [color]="'white'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
+        <amexio-card-demo [color]="'white'" [bg-color]="'rgba(0,0,0,.7)'" [bg-image]="'https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg'">
             <amexio-header-demo [align]="'space-between'">
                 <amexio-label size="medium-bold">John Doe </amexio-label>
                 <amexio-layout-columns [orientation]="'horizontal'" [border]="false">

@@ -8,7 +8,7 @@ export class AmexioCardBodyDemo {
 
     @HostBinding('attr.class') cardclass = 'card-container-body';
 
-    @Input('align') align;
+    @Input('align') align = '';
 
     // tslint:disable-next-line:no-input-rename
     @Input('bg-image') bgimage: string ;

@@ -6,7 +6,7 @@ import { Component, HostBinding, Input, OnInit } from "@angular/core";
 })
 export class AmexioCardActionDemo implements OnInit {
 
-    @Input('align') align;
+    @Input('align') align = '';
 
     @Input('bg-image') bgimage : string ;
 

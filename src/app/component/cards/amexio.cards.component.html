@@ -1,5 +1,5 @@
-<div [ngStyle]="{'background': bgimage ? 'url(' + bgimage + ') center/cover no-repeat' : null,
-                 'color':color,
-                 'background-color': bgcolor,'height':height}" [ngClass]="cclass" class="card-container-demo">
-    <ng-content></ng-content>
-</div>
+<div style="height:100%;" [ngStyle]="{'background': bgimage ? 'url(' + bgimage + ') center/cover no-repeat' : null}" [ngClass]="cclass">
+    <div class="card-container-demo" [ngStyle]="{ 'color':color, 'background-color': bgcolor}">
+        <ng-content></ng-content>
+        <div>
+        </div>

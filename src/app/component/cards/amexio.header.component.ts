@@ -6,7 +6,7 @@ import { Component, HostBinding, Input, OnInit } from "@angular/core";
 })
 export class AmexioCardHeaderDemo implements OnInit {
 
-    @Input('align') align = 'start'; // Possible values: All values which justify-content takes.
+    @Input('align') align = ''; // Possible values: All values which justify-content takes.
 
     @Input('bg-image') bgimage : string ;
 
