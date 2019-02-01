@@ -1,5 +1,5 @@
 <div style="height:100%;" [ngStyle]="{'background': bgimage ? 'url(' + bgimage + ') center/cover no-repeat' : null}" [ngClass]="cclass">
-    <div class="card-container-demo" [ngStyle]="{ 'color':color, 'background-color': bgcolor}">
+    <div class="card-container-demo" [ngStyle]="{'justify-content': (align === 'start' || align === 'end') ? 'flex-'+align:align , 'color':color, 'background-color': bgcolor}">
         <ng-content></ng-content>
         <div>
         </div>
