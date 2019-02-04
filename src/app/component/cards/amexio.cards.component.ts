@@ -63,6 +63,18 @@ export class AmexioCardCE implements OnInit , AfterContentInit {
         case 'narrower-action':
         this.cclass = this.cclass + ' card-container-narrower-action';
         break;
+        case 'wider-all':
+        this.cclass = this.cclass + ' card-container-wider-header card-container-wider-action';
+        break;
+        case 'narrower-all':
+        this.cclass = this.cclass + ' card-container-narrower-header card-container-narrower-action';
+        break;
+        case 'wider-header-narrower-action':
+        this.cclass = this.cclass + ' card-container-wider-header card-container-narrower-action';
+        break;
+        case 'narrower-header-wider-action':
+        this.cclass = this.cclass + ' card-container-narrower-header card-container-wider-action';
+        break;
         default:
         break;
       }
