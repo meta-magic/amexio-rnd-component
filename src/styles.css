@@ -121,6 +121,9 @@
     right: 40%;
 }
 
+amexio-layout-columns {
+    width: 100%;
+}
 .card-container-wider {
     margin: 0px 10px;
 }
