@@ -1,7 +1,7 @@
 import { Component, HostBinding,Input } from '@angular/core';
 
 @Component({
-    selector : 'amexio-body-demo',
+    selector : 'amexio-body-ce',
     templateUrl : './amexio.body.component.html'
 })
 export class AmexioCardBodyDemo {

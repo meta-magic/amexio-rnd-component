@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from "@angular/core";
 
 @Component({
-    selector : 'amexio-header-demo',
+    selector : 'amexio-header-ce',
     templateUrl : './amexio.header.component.html'
 })
 export class AmexioCardHeaderDemo implements OnInit {

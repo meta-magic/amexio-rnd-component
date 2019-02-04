@@ -4,12 +4,12 @@ import { AmexioCardHeaderDemo } from 'src/app/component/cards/amexio.header.comp
 import { AmexioCardActionDemo } from 'src/app/component/cards/amexio.action.component';
 
 @Component({
-    selector : 'amexio-card-demo',
+    selector : 'amexio-card-ce',
     templateUrl : './amexio.cards.component.html'
 })
 export class AmexioCardDemo implements OnInit , AfterContentInit {
 
-   // @HostBinding('attr.class') cardclass = 'card-container-demo';
+   // @HostBinding('attr.class') cardclass = 'card-container-ce';
 
     @Input('bg-image') bgimage: string;
 
@@ -42,10 +42,10 @@ export class AmexioCardDemo implements OnInit , AfterContentInit {
 
     ngOnInit() {
         if (!this.color) {
-          this.cclass = 'card-container-demo-color';
+          this.cclass = 'card-container-ce-color';
         }
         if (!this.bgcolor) {
-          this.cclass = this.cclass + ' card-container-demo-bg-color';
+          this.cclass = this.cclass + ' card-container-ce-bg-color';
         }
         if (this.styleType && this.styleType === 'wider') {
           this.cclass = this.cclass + ' card-container-wider';

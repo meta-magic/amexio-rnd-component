@@ -1,4 +1,4 @@
-.card-container-demo {
+.card-container-ce {
     height: 100%;
     position: relative;
     display: flex;
@@ -8,11 +8,11 @@
     height: 100%;
 }
 
-.card-container-demo-bg-color {
+.card-container-ce-bg-color {
     background-color: #fff;
 }
 
-.card-container-demo-color {
+.card-container-ce-color {
     color: #121212;
 }
 

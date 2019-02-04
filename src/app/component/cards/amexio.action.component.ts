@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from "@angular/core";
 
 @Component({
-    selector : 'amexio-action-demo',
+    selector : 'amexio-action-ce',
     templateUrl : './amexio.action.component.html'
 })
 export class AmexioCardActionDemo implements OnInit {
