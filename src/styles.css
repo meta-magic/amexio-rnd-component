@@ -8,6 +8,9 @@
     height: 100%;
 }
 
+amexio-layout-columns {
+    width: 100%;
+}
 .card-container-ce-bg-color {
     background-color: #fff;
 }
