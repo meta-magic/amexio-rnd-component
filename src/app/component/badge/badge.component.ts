@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'amexio-badge',
@@ -20,17 +20,15 @@ export class AmexioBadgeComponent implements OnInit {
 
     @Input('bottom') bottom: string;
 
-    @Input('orientation') orientation: string = 'vertical';
+    @Input('orientation') orientation = 'vertical';
 
     @Input('height') height: string;
 
     @Input('width') width: string;
 
     constructor() {
-
     }
 
     ngOnInit() {
-
     }
 }

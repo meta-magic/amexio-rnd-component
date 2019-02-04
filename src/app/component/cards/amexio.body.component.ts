@@ -1,10 +1,10 @@
-import { Component, HostBinding,Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-    selector : 'amexio-body-demo',
+    selector : 'amexio-body-ce',
     templateUrl : './amexio.body.component.html'
 })
-export class AmexioCardBodyDemo {
+export class AmexioCardCEBody {
 
     @HostBinding('attr.class') cardclass = 'card-container-body';
 
