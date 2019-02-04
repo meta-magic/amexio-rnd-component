@@ -18,6 +18,8 @@ export class AmexioCardCEAction implements OnInit {
 
     @Input('border-top') bordertop: boolean;
 
+    @Input('direction') direction = 'row';
+
     cclass = '';
 
     ngOnInit() {

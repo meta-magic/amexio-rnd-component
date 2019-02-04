@@ -45,12 +45,27 @@ export class AmexioCardCE implements OnInit , AfterContentInit {
         if (!this.bgcolor) {
           this.cclass = this.cclass + ' card-container-ce-bg-color';
         }
-        if (this.styleType && this.styleType === 'wider') {
-          this.cclass = this.cclass + ' card-container-wider';
-        }
-        if (this.styleType && this.styleType === 'narrower') {
-          this.cclass = this.cclass + ' card-container-narrower';
-        }
+       this.setWiderAndNarrower();
+    }
+
+    // THIS METHOD CALLL FOR HEADER AND ACTION STYLE
+    setWiderAndNarrower() {
+      switch (this.styleType) {
+        case 'wider-header' :
+        this.cclass = this.cclass + ' card-container-wider-header';
+        break;
+        case 'narrower-header':
+        this.cclass = this.cclass + ' card-container-narrower-header';
+        break;
+        case 'wider-action':
+        this.cclass = this.cclass + ' card-container-wider-action';
+        break;
+        case 'narrower-action':
+        this.cclass = this.cclass + ' card-container-narrower-action';
+        break;
+        default:
+        break;
+      }
     }
 
     ngAfterContentInit() {
