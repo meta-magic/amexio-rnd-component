@@ -4,7 +4,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
     selector : 'amexio-header-ce',
     templateUrl : './amexio.header.component.html'
 })
-export class AmexioCardHeaderDemo implements OnInit {
+export class AmexioCardCEHeader implements OnInit {
 
     @Input('align') align = '';
 

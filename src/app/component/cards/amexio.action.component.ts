@@ -4,7 +4,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
     selector : 'amexio-action-ce',
     templateUrl : './amexio.action.component.html'
 })
-export class AmexioCardActionDemo implements OnInit {
+export class AmexioCardCEAction implements OnInit {
 
     @Input('align') align = '';
 

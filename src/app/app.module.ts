@@ -24,10 +24,10 @@ import { AmexiotimelineeventComponent1 } from './component/timeline/amexiotimeli
 import { AmexiotimelineComponent1 } from './component/timeline/amexiotimelinenew.component';
 import { FormGroupComponent } from './component/form/form.group.component';
 import { AmexioDropDownComponent1 } from './component/dropdown/dropdown.component';
-import { AmexioCardDemo } from './component/cards/amexio.cards.component';
-import { AmexioCardHeaderDemo } from './component/cards/amexio.header.component';
-import { AmexioCardBodyDemo } from './component/cards/amexio.body.component';
-import { AmexioCardActionDemo } from './component/cards/amexio.action.component';
+import { AmexioCardCE } from './component/cards/amexio.cards.component';
+import { AmexioCardCEHeader } from './component/cards/amexio.header.component';
+import { AmexioCardCEBody } from './component/cards/amexio.body.component';
+import { AmexioCardCEAction } from './component/cards/amexio.action.component';
 import { AmexioBadgeComponent } from './component/badge/badge.component';
 import { DemoComponent } from 'src/app/demo.component';
 
@@ -43,10 +43,10 @@ import { DemoComponent } from 'src/app/demo.component';
     AmexiotimelineComponent1,
     AmexiotimelineeventComponent1,
     FormGroupComponent,
-    AmexioCardDemo,
-    AmexioCardBodyDemo,
-    AmexioCardHeaderDemo,
-    AmexioCardActionDemo,
+    AmexioCardCE,
+    AmexioCardCEBody,
+    AmexioCardCEHeader,
+    AmexioCardCEAction,
     AmexioBadgeComponent,
     DemoComponent
   ],
