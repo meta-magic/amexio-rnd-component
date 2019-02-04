@@ -9,8 +9,6 @@ import { AmexioCardActionDemo } from 'src/app/component/cards/amexio.action.comp
 })
 export class AmexioCardDemo implements OnInit , AfterContentInit {
 
-   // @HostBinding('attr.class') cardclass = 'card-container-ce';
-
     @Input('bg-image') bgimage: string;
 
     @Input('color') color: string;
