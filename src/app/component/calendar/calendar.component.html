@@ -1,0 +1,47 @@
+<table>
+    <thead>
+        <tr>
+            <td [attr.colspan]="displayHeaders.length">
+                <table>
+                    <tr>
+                        <td class="calendar-header-items" *ngFor="let month of displayHeaders"> <span>{{month}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="calendar-mainbox" [attr.colspan]="displayHeaders.length">
+                <div class="calendar-scroller" style="overflow: hidden; height: 942px;">
+                    <div style="width: 100%; position: relative;">
+                        <div style="height: 154px; position: relative;" *ngFor="let calendarRow of calendaryData">
+                            <div class="calendar-bg">
+                                <table>
+                                    <tr>
+                                        <td [ngClass]="{'calendar-active-box': day.isActive}" class="calendar-box-items"
+                                            *ngFor="let day of calendarRow">
+                                            <span
+                                                [ngClass]="{'calendar-inactive': !day.isActivePeriod}">{{ day.date | date:'d' }}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="calendar-user-content">
+                                <table>
+                                    <tr>
+                                        <td  [ngClass]="{'calendar-user-active': day.isEvent}" *ngFor="let day of calendarRow">
+                                            <span style="float:left" *ngIf="day.isEvent">{{day.eventDetails.title}}</span> 
+                                            <span  style="float:right" *ngIf="(day.eventDetails && day.eventDetails.hasTimeSlot)">{{day.eventDetails.eventDateTime |  date: "shortTime"}} </span> 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

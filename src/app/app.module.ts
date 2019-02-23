@@ -30,6 +30,8 @@ import { AmexioCardCEBody } from './component/cards/amexio.body.component';
 import { AmexioCardCEAction } from './component/cards/amexio.action.component';
 import { AmexioBadgeComponent } from './component/badge/badge.component';
 import { DemoComponent } from 'src/app/demo.component';
+import { AmexioCalendarComponent } from './component/calendar/calendar.component';
+import { CalendarHeaderPipe } from './component/calendar/calendar.pipe';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,10 @@ import { DemoComponent } from 'src/app/demo.component';
     AmexioCardCEHeader,
     AmexioCardCEAction,
     AmexioBadgeComponent,
-    DemoComponent
+    DemoComponent,
+
+    AmexioCalendarComponent,
+    CalendarHeaderPipe
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,33 @@ import { ControlContainer, NgForm } from '@angular/forms';
 })
 export class AppComponent {
   contactList: any = [];
+  events : any[];
+
   constructor() {
+    this.events = [
+      {
+          "title": "All Day Event",
+          "start": "2019-02-01" 
+      },
+      {
+          "title": "Long Event",
+          "start": "2019-02-07",
+          "end": "2019-02-10"
+      },
+      {
+          "title": "Repeating Event",
+          "start": "2019-02-19T04:00:00"
+      },
+      {
+          "title": "Repeating Event",
+          "start": "2019-02-16T18:25:00"
+      },
+      {
+          "title": "Conference",
+          "start": "2019-02-11",
+          "end": "2019-02-13"
+      }
+  ];
     this.contactList = [
       {
         'name': 'Ketan Gote',
