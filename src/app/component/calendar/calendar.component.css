@@ -52,9 +52,27 @@ table {
 }
 
 .calendar-user-content{
-    position: relative; padding-top: 30px;
+    position: relative; 
+    padding-top: 20px;
 }
 
+ul{
+   list-style: none;
+}
+
+li{
+    padding-bottom: 5px;
+}
+
+
 .calendar-user-active{
-    background-color: lightskyblue;
+    font-size : 15px;
+}
+
+.calendar-user-active-timeslot{
+    font-size : 10px;
+}
+
+ul{
+    margin-left:-20px;
 }
