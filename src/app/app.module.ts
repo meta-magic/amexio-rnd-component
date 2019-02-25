@@ -32,6 +32,9 @@ import { AmexioBadgeComponent } from './component/badge/badge.component';
 import { DemoComponent } from 'src/app/demo.component';
 import { AmexioCalendarComponent } from './component/calendar/calendar.component';
 import { CalendarHeaderPipe } from './component/calendar/calendar.pipe';
+import { AmexioCalendarHeaderComponent } from './component/calendar/calendar.header.component';
+import { AmexioCalendarMonth } from './component/calendar/calendar.month';
+import { AmexioCalendarWeek } from './component/calendar/calendar.week.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { CalendarHeaderPipe } from './component/calendar/calendar.pipe';
     DemoComponent,
 
     AmexioCalendarComponent,
+    AmexioCalendarMonth,
+    AmexioCalendarWeek,
+    AmexioCalendarHeaderComponent,
     CalendarHeaderPipe
   ],
   imports: [

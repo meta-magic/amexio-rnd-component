@@ -1,0 +1,10 @@
+<table>
+        <tr>
+                    <td *ngIf="(currentState === 'week')"> </td>
+                    <td class="calendar-header-items" *ngFor="let header of headers">
+                        <b *ngIf="(currentState === 'month')">{{header}}</b>
+                        <b *ngIf="(currentState === 'week')">{{header | date : 'EEEE d'}}</b>
+                    </td>
+                </tr>
+                </table>
+          

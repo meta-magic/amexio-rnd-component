@@ -50,4 +50,50 @@ export class AmexioDateUtils{
         return calendaryData;
     }
 
+    public createDaysForWeek(selectedPeriod: any, currrentDate: any) : any[]{
+        const calendaryData = [];
+        debugger;
+        const date = this.getWeekSunday(selectedPeriod);
+        for (let i = 0; i < 7; i++) {
+            const day: any = {
+                date: null, selected: false, isActivePeriod: null, isDisabled: false, isActive: false, isEvent: false, eventDetails: null,
+            };
+            day.date = new Date(date.getTime());
+            day.isActivePeriod = (date.getMonth() === selectedPeriod.getMonth());
+            day.isActive = this.isDateEqual(day.date, currrentDate);
+            calendaryData.push(day.date);
+            date.setDate(date.getDate() + 1);
+            
+        }
+        
+        return calendaryData;
+    }
+
+    getWeekSunday(date: Date) {
+        if(date.getDay() === 0){
+            return date;
+        }
+        else{
+            const diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+            const monday = new Date(date.setDate(diff));
+            return new Date(monday.setDate(monday.getDate() -1));    
+        }
+    }
+
+    getNextSunday(date: Date){
+        const currentSunday = this.getWeekSunday(date);
+        currentSunday.setDate(currentSunday.getDate()+7);
+        return new Date(currentSunday.getTime());
+    }
+
+    getPrevSunday(date: Date){
+        debugger;
+        let currentSunday = new Date(date.setDate(date.getDate()-7));
+        if(currentSunday.getDay() === 0){
+            currentSunday = new Date(currentSunday.setDate(currentSunday.getDate()-1));
+        }
+        currentSunday = this.getWeekSunday(currentSunday);
+        return new Date(currentSunday.getTime());
+    }
+
 }

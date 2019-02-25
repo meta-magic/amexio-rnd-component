@@ -130,7 +130,8 @@ export class AmexioCalendarComponent implements OnInit {
             this.displayHeaders = CALENDAR.DAY_NAME[this.headertype];
             this.createDaysForCurrentMonths(selectedPeriod);
         }else if(this.currentState === CALENDAR.WEEK){
-            this.displayHeaders = CALENDAR.DAY_NAME[this.headertype];
+            const weekDays : any[] = new AmexioDateUtils().createDaysForWeek(selectedPeriod, this.currrentDate);
+            this.displayHeaders = weekDays;
             this.createDaysForCurrentWeek(selectedPeriod);
         }
     }
@@ -154,37 +155,37 @@ export class AmexioCalendarComponent implements OnInit {
     }
 
     private createDaysForCurrentWeek(selectedPeriod: any) {
-
-
+        console.log("generate week days");
     }
     
+    setState(state: string){
+        this.currentState = state;
+        this.createData(this.currrentDate);
+    }
 
     previous() {
+        let newDate = new Date(this.currrentDate.getTime());
         if (this.currentState === CALENDAR.MONTH) {
-            this.prevMonth();
+            newDate = this.currrentDate.setMonth(this.currrentDate.getMonth() - 1);
+        }else if(this.currentState === CALENDAR.WEEK){
+            newDate = new AmexioDateUtils().getPrevSunday(newDate);
         }
+        this.currrentDate = new Date(newDate);
+        this.createData(this.currrentDate);
     }
 
     next() {
-        if (this.currentState === CALENDAR.MONTH) {
-            this.nextMonth();
-        }
-    }
-
-    prevMonth() {
-        const nxtMonth = this.currrentDate.setMonth(this.currrentDate.getMonth() - 1);
-        this.currrentDate = new Date(nxtMonth);
-        this.createDaysForCurrentMonths(this.currrentDate);
-    }
-
-    nextMonth() {
         debugger;
-        const nxtMonth = this.currrentDate.setMonth(this.currrentDate.getMonth() + 1);
-        this.currrentDate = new Date(nxtMonth);
-        this.createDaysForCurrentMonths(this.currrentDate);
+        let newDate = new Date(this.currrentDate.getTime());
+        if (this.currentState === CALENDAR.MONTH) {
+            newDate = this.currrentDate.setMonth(this.currrentDate.getMonth() + 1);
+        }else if(this.currentState === CALENDAR.WEEK){
+            newDate = new AmexioDateUtils().getNextSunday(newDate);
+        }
+        this.currrentDate = new Date(newDate);
+        this.createData(this.currrentDate);
     }
 
-    adjustMonth(month: number) {
-        this.currrentDate.setMonth(this.currrentDate.getDate() + month);
-    }
+  
+
 }

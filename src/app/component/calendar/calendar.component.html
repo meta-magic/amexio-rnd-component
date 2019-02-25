@@ -4,8 +4,8 @@
     <div> {{currrentDate | date : 'MMMM, y'}} </div>
     <div>
         <button>Day</button>
-        <button>Week</button>        
-        <button>Month</button>
+        <button (click)="setState('week')">Week</button>        
+        <button (click)="setState('month')">Month</button>
         <button>Year</button>        
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -13,14 +13,20 @@
         <em style="padding-right: 20px;" class="fa fa-chevron-right" aria-hidden="true" (click)="next()"></em>
     </div>
 </div>
+<amexio-calendar-month *ngIf="(currentState === 'month')" [headers]="displayHeaders" [calendar-data]="calendaryData" [calendar-row]="calendarRow"> </amexio-calendar-month>
+<amexio-calendar-week *ngIf="(currentState === 'week')" [headers]="displayHeaders" [calendar-data]="calendaryData" [calendar-row]="calendarRow"> </amexio-calendar-week>
 
+
+<!-- 
 <table>
     <thead>
         <tr>
             <td [attr.colspan]="displayHeaders.length">
                 <table>
                     <tr>
-                        <td class="calendar-header-items" *ngFor="let header of displayHeaders"> <b>{{header}}</b>
+                        <td class="calendar-header-items" *ngFor="let header of displayHeaders"> 
+                            <b *ngIf="(currentState === 'month')">{{header}}</b>
+                            <b *ngIf="(currentState === 'week')">{{header | date : 'EEEE d'}}</b>
                         </td>
                     </tr>
                 </table>
@@ -49,7 +55,6 @@
                                     <tr>
                                         <td [ngClass]="{'calendar-user-active': (day.eventDetails && day.eventDetails.isEvent)}"
                                             *ngFor="let day of calendarRow">
-
                                             <ng-container *ngIf="(day.eventDetails && day.eventDetails.events)">
                                                 <ul >
                                                     <li *ngFor="let dayevent of day.eventDetails.events">
@@ -63,9 +68,7 @@
                                                                 - {{dayevent.details.end |  date: "shortTime"}}
                                                             </ng-container>
                                                         </span>
-
                                                         </span>
-                                                            
                                                     </li>
                                                 </ul>
                                             </ng-container>
@@ -79,7 +82,7 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> -->
 <pre>
 {{events | json}} <br/>
 {{calendaryData|json}}
