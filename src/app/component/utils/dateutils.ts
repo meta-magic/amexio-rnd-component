@@ -52,8 +52,8 @@ export class AmexioDateUtils{
 
     public createDaysForWeek(selectedPeriod: any, currrentDate: any) : any[]{
         const calendaryData = [];
-        debugger;
-        const date = this.getWeekSunday(selectedPeriod);
+        
+        const date = this.getMonday(selectedPeriod);
         for (let i = 0; i < 7; i++) {
             const day: any = {
                 date: null, selected: false, isActivePeriod: null, isDisabled: false, isActive: false, isEvent: false, eventDetails: null,
@@ -67,6 +67,16 @@ export class AmexioDateUtils{
         }
         
         return calendaryData;
+    }
+
+    getMonday(date: Date) {
+        if (date) {
+            const day = date.getDay() || 7;
+            if (day !== 1) {
+                date.setHours(-24 * (day - 1));
+            }
+        }
+        return date;
     }
 
     getWeekSunday(date: Date) {
@@ -96,4 +106,25 @@ export class AmexioDateUtils{
         return new Date(currentSunday.getTime());
     }
 
+    isBetween(date:any, startDate:any, endDate:any){
+        endDate.setSeconds(0);
+        startDate.setSeconds(0);
+        date.setSeconds(0);
+        startDate.setMilliseconds(0);
+        endDate.setMilliseconds(0);
+        date.setMilliseconds(0);
+        if(date.getTime() > startDate.getTime() && date.getTime()< endDate.getTime()){
+            return true;
+        }
+        return false;
+    }
+
+    getDateWithSecondsZero(longdate:number) : any{
+        const date = new Date(longdate);
+        date.setSeconds(0);
+        date.setMilliseconds(0);
+        return date;
+    }
+
+     
 }

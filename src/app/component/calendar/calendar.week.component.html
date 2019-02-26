@@ -1,66 +1,63 @@
-
 <table>
-        <thead>
-            <tr>
-                <td [attr.colspan]="headers.length">
-                    <table>
-                        <tr>
-                            <td class="calendar-header-items" *ngFor="let header of headers"> 
-                                <b>{{header | date : 'EEEE d'}}</b>
-                                <!-- <b *ngIf="(currentState === 'week')">{{header | date : 'EEEE d'}}</b> -->
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="calendar-mainbox" [attr.colspan]="headers.length">
-                    <div class="calendar-scroller" style="overflow: hidden;">
-                        <div style="width: 100%; position: relative;">
-                            <div style="min-height: 150px; position: relative;" *ngFor="let calendarRow of calendaryData">
-                                <div class="calendar-bg">
-                                    <table>
-                                        <tr>
-                                            <td [ngClass]="{'calendar-active-box': day.isActive}" class="calendar-box-items"
-                                                *ngFor="let day of calendarRow">
-                                                <span
-                                                    [ngClass]="{'calendar-inactive': !day.isActivePeriod}">{{ day.date | date:'d' }}</span>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="calendar-user-content">
-                                    <table>
-                                        <tr>
-                                            <td [ngClass]="{'calendar-user-active': (day.eventDetails && day.eventDetails.isEvent)}"
-                                                *ngFor="let day of calendarRow">
-                                                <ng-container *ngIf="(day.eventDetails && day.eventDetails.events)">
-                                                    <ul >
-                                                        <li *ngFor="let dayevent of day.eventDetails.events">
-                                                            <span class="calendar-user-active"  
-                                                                *ngIf="dayevent.isEvent">
-                                                                {{dayevent.details.title}} <br/>
-                                                                <span class="calendar-user-active-timeslot"   
-                                                                *ngIf="(dayevent.details && dayevent.details.hasTimeSlot)">
-                                                                {{dayevent.details.start |  date: "shortTime"}}
-                                                                <ng-container *ngIf="(dayevent.details && dayevent.details.end)">
-                                                                    - {{dayevent.details.end |  date: "shortTime"}}
-                                                                </ng-container>
-                                                            </span>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                </ng-container>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+    <thead>
+        <tr>
+            <td [attr.colspan]="headers.length">
+                <table>
+                    <tr>
+                        <td class="calendar-header-items calendar-user-active-timeslot" style="width:50px;"> &nbsp;</td>
+                        <td class="calendar-header-items" *ngFor="let header of headers">
+                            <b>{{header | date : 'EEEE d'}}</b>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="calendar-mainbox" [attr.colspan]="headers.length">
+                <div class="calendar-scroller" style="overflow: auto; height: 100%;">
+                    <div style="width: 100%; position: relative;">
+
+                        <div class="calendar-bg">
+                            <table>
+                                <tr *ngFor="let calendarRow of calendaryData">
+                                    <td class="calendar-header-items calendar-week-timeslot" style="width:50px;">
+
+                                        <ng-container *ngIf="(calendarRow.time==null)">
+                                            <div style="min-height: 50px;">{{calendarRow.title}}</div>
+                                        </ng-container>
+                                        <ng-container *ngIf="(calendarRow.time && calendarRow.time!=null)">
+                                            <div class=".calendar-week-timeslotseries-div">
+                                                {{ calendarRow.time | date:'hh:mm a' }}</div>
+                                        </ng-container>
+
+                                    </td>
+                                    <td style="padding:0px;" class="calendar-box-items" *ngFor="let day of calendarRow.daywiseevent">
+                                        <div  class="calendar-week-day-timeslot" [ngClass]="{'calendar-week-active-timeslot': day.isEvent}" 
+                                        [ngStyle]="{'height': (day.isEvent && day.eventDetails && day.eventDetails.diff) ? day.eventDetails.diff+'px' : null}">
+                                            <span *ngIf="day.isEvent" class="calendar-user-active">
+                                                {{day.eventDetails.details.title}}<br />
+                                                <span class="calendar-user-active-timeslot"
+                                                    *ngIf="(day.eventDetails.details && day.eventDetails.details.hasTimeSlot)">
+                                                    {{day.eventDetails.details.start |  date: "shortTime"}}
+                                                    <ng-container *ngIf="(day.eventDetails.details && day.eventDetails.details.end)">
+                                                        - {{day.eventDetails.details.end |  date: "shortTime"}}
+                                                    </ng-container>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+
+
                         </div>
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

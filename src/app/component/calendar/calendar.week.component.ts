@@ -10,7 +10,9 @@ export class AmexioCalendarWeek {
     @Input('headers') headers : any[];
 
     @Input('calendar-data') calendaryData : any[];
+ 
 
-    @Input('calendar-row') calendarRow : any[];
-
+    constructor(){
+        
+    }
 }
