@@ -166,15 +166,17 @@ export class AmexioCalendarComponent implements OnInit {
         });
     }
 
-    weekevents: any[];
+
     private createDaysForCurrentWeek(selectedPeriod: any) {
         this.calendarWeekData = [];
-        this.weekevents = Object.assign([], this.events);
+
         const allday = { 'title': 'all-day', daywiseevent: [], time: null };
 
         this.displayHeaders.forEach((day: any) => {
-            let weekobj = { title: '', eventdatetime: null, eventDetails: null };
-            weekobj.title = 'ABCD';
+            debugger;
+            const eventDetails = this.hasWeekEvent(day, true);
+            
+            let weekobj = { title: eventDetails.title, eventdatetime: day, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
             allday.daywiseevent.push(weekobj);
         });
         this.calendarWeekData.push(allday);
@@ -191,10 +193,10 @@ export class AmexioCalendarComponent implements OnInit {
                 if (dateTime.getDate() === 26) {
                     debugger;
                 }
-                const eventDetails = this.hasWeekEvent(dateTime);
+                const eventDetails = this.hasWeekEvent(dateTime, false);
                 // console.log(dateTime.getDay(), " ", dateTime , "   ",eventDetails);
                 let weekobj = { title: eventDetails.title, eventdatetime: dateTime, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
-                
+
                 timeDataDayWise.daywiseevent.push(weekobj);
             });
             this.calendarWeekData.push(timeDataDayWise);
@@ -202,38 +204,44 @@ export class AmexioCalendarComponent implements OnInit {
     }
 
 
-    private hasWeekEvent(wsd: any) {
+    private hasWeekEvent(wsd: any, wholeday: boolean) {
         const adu = new AmexioDateUtils();
         const weekDateSlotStart = adu.getDateWithSecondsZero(wsd.getTime());
         const weekDateSlotEnd = adu.getDateWithSecondsZero(weekDateSlotStart.getTime());
-        weekDateSlotEnd.setHours(weekDateSlotEnd.getHours(),59);
-       
+        weekDateSlotEnd.setHours(weekDateSlotEnd.getHours(), 59);
         const eventsData = [];
-        let flag = { isEvent: false, details: null, title: null, hasTimeSlot: false, eventDateTime: null, events: [], diff:0 };
-        if (this.weekevents && this.weekevents.length > 0) {
-            this.weekevents.forEach((event: any) => {
-                if (event.hasTimeSlot) {
-                    const eventStartDate = adu.getDateWithSecondsZero(new Date(event.start).getTime());
+        let flag = { isEvent: false, details: null, title: null, hasTimeSlot: false, eventDateTime: null, events: [], diff: 0 };
+        if (this.events && this.events.length > 0) {
+            this.events.forEach((event: any) => {
+                const eventStartDate = adu.getDateWithSecondsZero(new Date(event.start).getTime());
+                if (event.hasTimeSlot && !wholeday) {
                     if (event.end) {
-    
                         const eventEndDate = adu.getDateWithSecondsZero(new Date(event.end).getTime());
-    
-                        let isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()) );
+
+                        let isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
                         if (isEvent && !flag.isEvent) {
-                                console.log(event, " is present between ", eventStartDate, " ", eventEndDate);
-                                
-                                flag.hasTimeSlot = event.hasTimeSlot;
-                                flag.eventDateTime = eventStartDate;
-                                flag.isEvent = isEvent;
-                                flag.details = event;
-                                flag.title = event.title;
-                                flag.diff = ((eventEndDate.getTime() - eventStartDate.getTime())/1000)/60;
-                                flag.isEvent = true;
-                            
+                            flag.hasTimeSlot = event.hasTimeSlot;
+                            flag.eventDateTime = eventStartDate;
+                            flag.isEvent = isEvent;
+                            flag.details = event;
+                            flag.title = event.title;
+                            flag.diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
+
+
                         }
                     }
+                } else if(wholeday && !event.hasTimeSlot){
+                   
+                    let isEvent = new AmexioDateUtils().isDateEqual(eventStartDate,weekDateSlotStart);
+                    if (isEvent) {
+                        flag.details = event;
+                        flag.title = event.title;
+                        flag.isEvent = isEvent;
+                        flag.hasTimeSlot = event.hasTimeSlot;
+                        flag.eventDateTime = event.date;
+                    }
                 }
-               
+
             });
         }
         flag.events = eventsData;
@@ -248,25 +256,27 @@ export class AmexioCalendarComponent implements OnInit {
     }
 
     previous() {
+        debugger;
         let newDate = new Date(this.currrentDate.getTime());
         if (this.currentState === CALENDAR.MONTH) {
-            newDate = this.currrentDate.setMonth(this.currrentDate.getMonth() - 1);
+            newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getPrevSunday(newDate);
         }
         this.currrentDate = new Date(newDate);
+        console.log(this.currrentDate);
         this.createData(this.currrentDate);
     }
 
     next() {
-        debugger;
         let newDate = new Date(this.currrentDate.getTime());
         if (this.currentState === CALENDAR.MONTH) {
-            newDate = this.currrentDate.setMonth(this.currrentDate.getMonth() + 1);
+            newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getNextSunday(newDate);
         }
         this.currrentDate = new Date(newDate);
+        console.log(this.currrentDate);
         this.createData(this.currrentDate);
     }
 

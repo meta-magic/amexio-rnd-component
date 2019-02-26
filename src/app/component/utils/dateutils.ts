@@ -97,12 +97,8 @@ export class AmexioDateUtils{
     }
 
     getPrevSunday(date: Date){
-        debugger;
-        let currentSunday = new Date(date.setDate(date.getDate()-7));
-        if(currentSunday.getDay() === 0){
-            currentSunday = new Date(currentSunday.setDate(currentSunday.getDate()-1));
-        }
-        currentSunday = this.getWeekSunday(currentSunday);
+        const currentSunday = this.getWeekSunday(date);
+        currentSunday.setDate(currentSunday.getDate()-7);
         return new Date(currentSunday.getTime());
     }
 

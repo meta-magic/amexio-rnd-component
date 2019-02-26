@@ -15,7 +15,7 @@ export class AppComponent {
     this.events = [
       {
         "title": "All Day Event",
-        "start": "2019-02-01"
+        "start": "2019-02-25"
       },
       {
         "title": "Microservice Workshop",
@@ -24,8 +24,8 @@ export class AppComponent {
       },
       {
         "title": "Amexio Meetup",
-        "start": "2019-02-26T04:00:00",
-        "end": "2019-02-26T05:00:00"
+        "start": "2019-02-28T04:00:00",
+        "end": "2019-02-28T05:00:00"
       },
       {
         "title": "Amexio Meetup 2.1",
@@ -39,7 +39,8 @@ export class AppComponent {
       },
       {
         "title": "Amexio Meetup 3",
-        "start": "2019-02-22T18:25:00"
+        "start": "2019-02-22T18:25:00",
+        "end": "2019-02-22T21:25:00"
       },
       {
         "title": "121 Conference",
