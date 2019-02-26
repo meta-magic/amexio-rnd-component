@@ -145,6 +145,11 @@ export class AmexioCalendarComponent implements OnInit {
             const weekDays: any[] = new AmexioDateUtils().createDaysForWeek(selectedPeriod, this.currrentDate);
             this.displayHeaders = weekDays;
             this.createDaysForCurrentWeek(selectedPeriod);
+        }else if (this.currentState === CALENDAR.DAY) {
+            const weekDays: any[] = [];
+            weekDays.push(new Date(this.currrentDate.getTime()));
+            this.displayHeaders = weekDays;
+            this.createDaysForCurrentWeek(selectedPeriod);
         }
     }
 
@@ -175,7 +180,7 @@ export class AmexioCalendarComponent implements OnInit {
         this.displayHeaders.forEach((day: any) => {
             debugger;
             const eventDetails = this.hasWeekEvent(day, true);
-            
+
             let weekobj = { title: eventDetails.title, eventdatetime: day, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
             allday.daywiseevent.push(weekobj);
         });
@@ -214,31 +219,27 @@ export class AmexioCalendarComponent implements OnInit {
         if (this.events && this.events.length > 0) {
             this.events.forEach((event: any) => {
                 const eventStartDate = adu.getDateWithSecondsZero(new Date(event.start).getTime());
+                let isEvent = false;
                 if (event.hasTimeSlot && !wholeday) {
                     if (event.end) {
                         const eventEndDate = adu.getDateWithSecondsZero(new Date(event.end).getTime());
-
-                        let isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
+                        isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
                         if (isEvent && !flag.isEvent) {
-                            flag.hasTimeSlot = event.hasTimeSlot;
-                            flag.eventDateTime = eventStartDate;
-                            flag.isEvent = isEvent;
-                            flag.details = event;
-                            flag.title = event.title;
                             flag.diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
-
-
                         }
                     }
-                } else if(wholeday && !event.hasTimeSlot){
-                   
-                    let isEvent = new AmexioDateUtils().isDateEqual(eventStartDate,weekDateSlotStart);
-                    if (isEvent) {
+                } else if (wholeday && !event.hasTimeSlot) {
+                    isEvent = new AmexioDateUtils().isDateEqual(eventStartDate, weekDateSlotStart);
+
+                }
+
+                if (isEvent) {
+                    if (isEvent && !flag.isEvent) {
+                        flag.hasTimeSlot = event.hasTimeSlot;
+                        flag.eventDateTime = eventStartDate;
+                        flag.isEvent = isEvent;
                         flag.details = event;
                         flag.title = event.title;
-                        flag.isEvent = isEvent;
-                        flag.hasTimeSlot = event.hasTimeSlot;
-                        flag.eventDateTime = event.date;
                     }
                 }
 
@@ -262,6 +263,8 @@ export class AmexioCalendarComponent implements OnInit {
             newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getPrevSunday(newDate);
+        }else if (this.currentState === CALENDAR.DAY) {
+            newDate.setDate(newDate.getDate()-1);
         }
         this.currrentDate = new Date(newDate);
         console.log(this.currrentDate);
@@ -274,6 +277,8 @@ export class AmexioCalendarComponent implements OnInit {
             newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getNextSunday(newDate);
+        }else if (this.currentState === CALENDAR.DAY) {
+            newDate.setDate(newDate.getDate()+1);
         }
         this.currrentDate = new Date(newDate);
         console.log(this.currrentDate);

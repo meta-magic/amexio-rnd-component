@@ -1,14 +1,15 @@
 
-{{currrentDate}} -- {{currentState}}
+
 
 <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; border: 1px solid;">
     <div *ngIf="(currentState === 'month')" > {{currrentDate | date : 'MMMM, y'}} </div>
     <div *ngIf="(currentState === 'week')" > {{displayHeaders[0] | date : 'd MMM'}} - {{displayHeaders[6] | date : 'd MMM'}} {{displayHeaders[6] | date : 'y'}} </div>
+    <div *ngIf="(currentState === 'day')" > {{currrentDate | date : 'd MMMM, y'}} </div>    
     <div>
-        <button>Day</button>
+        <button (click)="setState('day')">Day</button>
         <button (click)="setState('week')">Week</button>        
         <button (click)="setState('month')">Month</button>
-        <button>Year</button>        
+        
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-between;">
         <em style="padding-right: 20px;" class="fa fa-chevron-left" aria-hidden="true" (click)="previous()"></em> 
@@ -16,8 +17,9 @@
     </div>
 </div>
 <amexio-calendar-month *ngIf="(currentState === 'month')" [headers]="displayHeaders" [calendar-data]="calendarMonthData" [calendar-row]="calendarRow"> </amexio-calendar-month>
-<amexio-calendar-week *ngIf="(currentState === 'week')" [headers]="displayHeaders" [calendar-data]="calendarWeekData" > </amexio-calendar-week>
+<amexio-calendar-week *ngIf="(currentState === 'week' || currentState === 'day')" [headers]="displayHeaders" [calendar-data]="calendarWeekData" > </amexio-calendar-week>
 
+<span>{{currrentDate |  date : 'd MMM y'}} -- {{currentState}}</span>
 <pre>
 {{displayHeaders | json}}
 </pre>
