@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { CALENDAR } from "./calendar.const";
 import { AmexioDateUtils } from "../utils/dateutils";
-import { AmexioCalendarWeek } from "./calendar.week.component";
 
 
 @Component({

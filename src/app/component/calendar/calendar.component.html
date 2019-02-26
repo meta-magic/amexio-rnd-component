@@ -17,7 +17,7 @@
     </div>
 </div>
 <amexio-calendar-month *ngIf="(currentState === 'month')" [headers]="displayHeaders" [calendar-data]="calendarMonthData" [calendar-row]="calendarRow"> </amexio-calendar-month>
-<amexio-calendar-week *ngIf="(currentState === 'week' || currentState === 'day')" [headers]="displayHeaders" [calendar-data]="calendarWeekData" > </amexio-calendar-week>
+<amexio-calendar-day-timewise *ngIf="(currentState === 'week' || currentState === 'day')" [headers]="displayHeaders" [calendar-data]="calendarWeekData" > </amexio-calendar-day-timewise>
 
 <span>{{currrentDate |  date : 'd MMM y'}} -- {{currentState}}</span>
 <pre>

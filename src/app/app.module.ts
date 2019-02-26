@@ -33,7 +33,7 @@ import { DemoComponent } from 'src/app/demo.component';
 import { AmexioCalendarComponent } from './component/calendar/calendar.component';
 import { AmexioCalendarHeaderComponent } from './component/calendar/calendar.header.component';
 import { AmexioCalendarMonth } from './component/calendar/calendar.month';
-import { AmexioCalendarWeek } from './component/calendar/calendar.week.component';
+import { AmexioCalendarDayTimeWise } from './component/calendar/calendar.daytimewise.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import { AmexioCalendarWeek } from './component/calendar/calendar.week.component
 
     AmexioCalendarComponent,
     AmexioCalendarMonth,
-    AmexioCalendarWeek,
+    AmexioCalendarDayTimeWise,
     AmexioCalendarHeaderComponent
     
   ],
