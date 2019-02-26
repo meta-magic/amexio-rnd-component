@@ -1,7 +1,7 @@
 
 
 
-<div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; border: 1px solid;">
+<div class="calendar-header card-header">
     <div *ngIf="(currentState === 'month')" > {{currrentDate | date : 'MMMM, y'}} </div>
     <div *ngIf="(currentState === 'week')" > {{displayHeaders[0] | date : 'd MMM'}} - {{displayHeaders[6] | date : 'd MMM'}} {{displayHeaders[6] | date : 'y'}} </div>
     <div *ngIf="(currentState === 'day')" > {{currrentDate | date : 'd MMMM, y'}} </div>    
@@ -18,8 +18,3 @@
 </div>
 <amexio-calendar-month *ngIf="(currentState === 'month')" [headers]="displayHeaders" [calendar-data]="calendarMonthData" [calendar-row]="calendarRow"> </amexio-calendar-month>
 <amexio-calendar-day-timewise *ngIf="(currentState === 'week' || currentState === 'day')" [headers]="displayHeaders" [calendar-data]="calendarWeekData" > </amexio-calendar-day-timewise>
-
-<span>{{currrentDate |  date : 'd MMM y'}} -- {{currentState}}</span>
-<pre>
-{{displayHeaders | json}}
-</pre>

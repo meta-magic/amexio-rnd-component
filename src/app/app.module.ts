@@ -31,7 +31,6 @@ import { AmexioCardCEAction } from './component/cards/amexio.action.component';
 import { AmexioBadgeComponent } from './component/badge/badge.component';
 import { DemoComponent } from 'src/app/demo.component';
 import { AmexioCalendarComponent } from './component/calendar/calendar.component';
-import { AmexioCalendarHeaderComponent } from './component/calendar/calendar.header.component';
 import { AmexioCalendarMonth } from './component/calendar/calendar.month';
 import { AmexioCalendarDayTimeWise } from './component/calendar/calendar.daytimewise.component';
 
@@ -56,8 +55,7 @@ import { AmexioCalendarDayTimeWise } from './component/calendar/calendar.daytime
 
     AmexioCalendarComponent,
     AmexioCalendarMonth,
-    AmexioCalendarDayTimeWise,
-    AmexioCalendarHeaderComponent
+    AmexioCalendarDayTimeWise
     
   ],
   imports: [

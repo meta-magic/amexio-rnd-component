@@ -17,7 +17,7 @@
         <tbody>
             <tr>
                 <td class="calendar-mainbox" [attr.colspan]="headers.length">
-                    <div class="calendar-scroller" style="overflow: hidden;">
+                    <div class="calendar-scroller">
                         <div style="width: 100%; position: relative;">
                             <div style="min-height: 150px; position: relative;" *ngFor="let calendarRow of calendaryData">
                                 <div class="calendar-bg">
@@ -37,8 +37,8 @@
                                             <td [ngClass]="{'calendar-user-active': (day.eventDetails && day.eventDetails.isEvent)}"
                                                 *ngFor="let day of calendarRow">
                                                 <ng-container *ngIf="(day.eventDetails && day.eventDetails.events)">
-                                                    <ul >
-                                                        <li *ngFor="let dayevent of day.eventDetails.events">
+                                                    <ul class="calendar-ul">
+                                                        <li  class="calendar-li" *ngFor="let dayevent of day.eventDetails.events">
                                                             <span class="calendar-user-active"  
                                                                 *ngIf="dayevent.isEvent">
                                                                 {{dayevent.details.title}} <br/>

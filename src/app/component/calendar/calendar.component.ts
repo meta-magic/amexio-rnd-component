@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { CALENDAR } from "./calendar.const";
 import { AmexioDateUtils } from "../utils/dateutils";
+import { CalendarEventModel } from "./calendarevent.model";
 
 
 @Component({
@@ -14,54 +15,18 @@ export class AmexioCalendarComponent implements OnInit {
     calendarMonthData: any[] = [];
     calendarWeekData: any[] = [];
     currrentDate: any;
-    initiated: boolean;
-
-    _headerType: string;
-
-    _events: any[];
 
     currentState: string; // month/week/day
 
-    @Input('header-type') //short/full/min
-    set headertype(v: string) {
-        if (v != null) {
-            this._headerType = v;
-        }
-    }
+    @Input('header-type') headertype: string;//short/full/min
 
-    get headertype() {
-        return this._headerType;
-    }
-
-    @Input('events')
-    set events(v: any[]) {
-        if (v != null) {
-            this._events = v;
-        }
-    }
-
-    get events() {
-        return this._events;
-    }
-
-
-
+    @Input('events') events: any[];
 
     constructor() {
         this.currentState = CALENDAR.MONTH;
         this.headertype = CALENDAR.SHORT;
         this.currrentDate = new Date();
-        this.initiated = true;
         this.events = [];
-        let i;
-        let time = [];
-        for (i = 0; i <= 24; i++) {
-            console.log({ hr: i, min: 0 });
-            time.push({ hr: i, min: 0 });
-            time.push({ hr: i, min: 30 });
-        }
-
-        console.log(JSON.stringify(time));
     }
 
     ngOnInit() {
@@ -69,10 +34,8 @@ export class AmexioCalendarComponent implements OnInit {
     }
 
     initCalendar() {
-        if (this.initiated) {
-            this.validateEventData();
-            this.createData(this.currrentDate);
-        }
+        this.validateEventData();
+        this.createData(this.currrentDate);
     }
 
 
@@ -83,10 +46,7 @@ export class AmexioCalendarComponent implements OnInit {
                 event.hasTimeSlot = true;
             }
             if (event.end) {
-                let eventStartDate = new Date(event.start);
-                let eventEndDate = new Date(event.end);
-
-                const events1 = this.generatEventData(eventStartDate, eventEndDate);
+                const events1 = this.generatEventData(new Date(event.start), new Date(event.end));
                 events1.forEach((event1) => {
                     const newobj = Object.assign({}, event);
                     newobj.start = event1;
@@ -97,11 +57,10 @@ export class AmexioCalendarComponent implements OnInit {
         newEvents.forEach((event) => {
             this.events.push(event);
         });
-        console.log(this.events);
     }
 
     private generatEventData(startDate: any, endDate: any) {
-        let event = [];
+        const event = [];
         let flag = false;
         while (startDate.getTime() <= endDate.getTime()) {
             if (flag) {
@@ -115,20 +74,14 @@ export class AmexioCalendarComponent implements OnInit {
 
     private hasEvent(date: any) {
         const eventsData = [];
-        let flag = { isEvent: false, events: [] };
+        const flag = { isEvent: false, events: [] };
         if (this.events && this.events.length > 0) {
             this.events.forEach((event: any) => {
-                let eventStartDate = new Date(event.start);
-                let isEvent = new AmexioDateUtils().isDateEqual(date, eventStartDate);
+                const eventStartDate = new Date(event.start);
+                const isEvent = new AmexioDateUtils().isDateEqual(date, eventStartDate);
                 if (isEvent) {
-                    let flag1 = { isEvent: false, details: null, title: null, hasTimeSlot: false, eventDateTime: null, events: [] };
-                    flag1.hasTimeSlot = event.hasTimeSlot;
-                    flag1.eventDateTime = date;
-                    flag1.isEvent = isEvent;
-                    flag1.details = event;
-                    flag1.title = event.title;
-                    eventsData.push(Object.assign({}, flag1));
-                    flag.isEvent = true;
+                    eventsData.push(new CalendarEventModel(isEvent, event, event.title, event.hasTimeSlot, date, null));
+                    flag.isEvent = isEvent;
                 }
             });
         }
@@ -140,13 +93,14 @@ export class AmexioCalendarComponent implements OnInit {
         if (this.currentState === CALENDAR.MONTH) {
             this.displayHeaders = CALENDAR.DAY_NAME[this.headertype];
             this.createDaysForCurrentMonths(selectedPeriod);
-        } else if (this.currentState === CALENDAR.WEEK) {
-            const weekDays: any[] = new AmexioDateUtils().createDaysForWeek(selectedPeriod, this.currrentDate);
-            this.displayHeaders = weekDays;
-            this.createDaysForCurrentWeek(selectedPeriod);
-        }else if (this.currentState === CALENDAR.DAY) {
-            const weekDays: any[] = [];
-            weekDays.push(new Date(this.currrentDate.getTime()));
+        } else if (this.currentState === CALENDAR.WEEK || this.currentState === CALENDAR.DAY) {
+            let weekDays: any[];
+            if (this.currentState === CALENDAR.WEEK) {
+                weekDays = new AmexioDateUtils().createDaysForWeek(selectedPeriod, this.currrentDate);
+            } else {
+                weekDays = [];
+                weekDays.push(new Date(this.currrentDate.getTime()));
+            }
             this.displayHeaders = weekDays;
             this.createDaysForCurrentWeek(selectedPeriod);
         }
@@ -174,33 +128,23 @@ export class AmexioCalendarComponent implements OnInit {
     private createDaysForCurrentWeek(selectedPeriod: any) {
         this.calendarWeekData = [];
 
-        const allday = { 'title': 'all-day', daywiseevent: [], time: null };
-
-        this.displayHeaders.forEach((day: any) => {
-            debugger;
-            const eventDetails = this.hasWeekEvent(day, true);
-
-            let weekobj = { title: eventDetails.title, eventdatetime: day, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
+        const allday = { 'title': CALENDAR.ALL_DAY_TEXT, daywiseevent: [], time: null };
+        this.displayHeaders.forEach((date: any) => {
+            const eventDetails = this.hasWeekEvent(date, true);
+            let weekobj = { title: eventDetails.title, eventDateTime: date, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
             allday.daywiseevent.push(weekobj);
         });
         this.calendarWeekData.push(allday);
 
-        const timeSeries: any[] = CALENDAR.DAY_TIME_SERIES;
-
-        timeSeries.forEach((time: any) => {
+        CALENDAR.DAY_TIME_SERIES.forEach((time: any) => {
             const dateTime = new Date();
             dateTime.setHours(time.hr, time.min);
             const timeDataDayWise = { 'title': time.hr + ':' + time.min, daywiseevent: [], time: dateTime };
             this.displayHeaders.forEach((day: any) => {
                 const dateTime = new Date(day.getTime());
                 dateTime.setHours(time.hr, time.min, 0);
-                if (dateTime.getDate() === 26) {
-                    debugger;
-                }
                 const eventDetails = this.hasWeekEvent(dateTime, false);
-                // console.log(dateTime.getDay(), " ", dateTime , "   ",eventDetails);
                 let weekobj = { title: eventDetails.title, eventdatetime: dateTime, isEvent: eventDetails.isEvent, eventDetails: eventDetails };
-
                 timeDataDayWise.daywiseevent.push(weekobj);
             });
             this.calendarWeekData.push(timeDataDayWise);
@@ -213,8 +157,8 @@ export class AmexioCalendarComponent implements OnInit {
         const weekDateSlotStart = adu.getDateWithSecondsZero(wsd.getTime());
         const weekDateSlotEnd = adu.getDateWithSecondsZero(weekDateSlotStart.getTime());
         weekDateSlotEnd.setHours(weekDateSlotEnd.getHours(), 59);
-        const eventsData = [];
-        let flag = { isEvent: false, details: null, title: null, hasTimeSlot: false, eventDateTime: null, events: [], diff: 0 };
+
+        const flag = { isEvent: false, details: null, title: null, hasTimeSlot: false, eventDateTime: null, events: [], diff: 0, diffwithslot: 0 };
         if (this.events && this.events.length > 0) {
             this.events.forEach((event: any) => {
                 const eventStartDate = adu.getDateWithSecondsZero(new Date(event.start).getTime());
@@ -223,13 +167,13 @@ export class AmexioCalendarComponent implements OnInit {
                     if (event.end) {
                         const eventEndDate = adu.getDateWithSecondsZero(new Date(event.end).getTime());
                         isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
-                        if (isEvent && !flag.isEvent) {
+                        if (isEvent) {
                             flag.diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
+                            flag.diffwithslot = ((eventStartDate.getTime() - weekDateSlotStart.getTime()) / 1000) / 60;
                         }
                     }
                 } else if (wholeday && !event.hasTimeSlot) {
                     isEvent = new AmexioDateUtils().isDateEqual(eventStartDate, weekDateSlotStart);
-
                 }
 
                 if (isEvent) {
@@ -244,7 +188,7 @@ export class AmexioCalendarComponent implements OnInit {
 
             });
         }
-        flag.events = eventsData;
+
         return flag;
     }
 
@@ -256,17 +200,15 @@ export class AmexioCalendarComponent implements OnInit {
     }
 
     previous() {
-        debugger;
         let newDate = new Date(this.currrentDate.getTime());
         if (this.currentState === CALENDAR.MONTH) {
             newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getPrevSunday(newDate);
-        }else if (this.currentState === CALENDAR.DAY) {
-            newDate.setDate(newDate.getDate()-1);
+        } else if (this.currentState === CALENDAR.DAY) {
+            newDate.setDate(newDate.getDate() - 1);
         }
         this.currrentDate = new Date(newDate);
-        console.log(this.currrentDate);
         this.createData(this.currrentDate);
     }
 
@@ -276,11 +218,10 @@ export class AmexioCalendarComponent implements OnInit {
             newDate.setMonth(newDate.getMonth() + 1);
         } else if (this.currentState === CALENDAR.WEEK) {
             newDate = new AmexioDateUtils().getNextSunday(newDate);
-        }else if (this.currentState === CALENDAR.DAY) {
-            newDate.setDate(newDate.getDate()+1);
+        } else if (this.currentState === CALENDAR.DAY) {
+            newDate.setDate(newDate.getDate() + 1);
         }
         this.currrentDate = new Date(newDate);
-        console.log(this.currrentDate);
         this.createData(this.currrentDate);
     }
 

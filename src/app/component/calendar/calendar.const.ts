@@ -1,5 +1,6 @@
 
 export const CALENDAR = {
+    ALL_DAY_TEXT : "all-day",
     MONTH: "month",
     WEEK: "week",
     DAY: "day",
