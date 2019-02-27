@@ -42,6 +42,7 @@ export class AmexioCalendarComponent1 implements OnInit {
         this.events = [];
         this.adu = new AmexioDateUtils();
         this.weekHeaders = { title: CALENDAR.ALL_DAY_TEXT, daywiseevent: null, time: null };
+
     }
 
     ngOnInit() {
@@ -106,7 +107,7 @@ export class AmexioCalendarComponent1 implements OnInit {
     private createData(selectedPeriod: any) {
         if (this.currentState === CALENDAR.MONTH) {
             this.displayHeaders = CALENDAR.DAY_NAME[this.headertype];
-            this.createDaysForCurrentMonths(selectedPeriod);
+            this.calendarMonthData = this.createDaysForCurrentMonths(selectedPeriod, this.currrentDate);
         } else if (this.currentState === CALENDAR.WEEK || this.currentState === CALENDAR.DAY) {
             let weekDays = [];
             if (this.currentState === CALENDAR.WEEK) {
@@ -117,12 +118,27 @@ export class AmexioCalendarComponent1 implements OnInit {
             }
             this.displayHeaders = weekDays;
             this.createDaysForCurrentWeek(selectedPeriod);
+        } if (this.currentState === CALENDAR.YEAR) {
+            this.displayHeaders = CALENDAR.DAY_NAME[CALENDAR.SHORT];            
+            this.calendarMonthData = this.createYearData();
         }
     }
 
-    private createDaysForCurrentMonths(selectedPeriod: any) {
-        this.calendarMonthData = [];
-        const monthData: any[] = this.adu.createDaysForMonths(selectedPeriod, this.currrentDate);
+    private createYearData() : any[]{
+        const yearData = [];
+        const year = this.currrentDate.getUTCFullYear();
+        const months = CALENDAR.MONTH_NAME[CALENDAR.FULL];
+        for (let i = 0; i < months.length; i++) {
+            const monthDate = new Date(year, i, 1);
+            const monthData1 = this.createDaysForCurrentMonths(monthDate, new Date());                
+            yearData.push(Object.assign({},{ month: monthDate, title: months[i], data: monthData1 }));
+        }
+        return yearData;
+    }
+
+    private createDaysForCurrentMonths(selectedPeriod: any, currrentDate: any): any[] {
+        const calendarMonthData = [];
+        const monthData: any[] = this.adu.createDaysForMonths(selectedPeriod, currrentDate);
         monthData.forEach((week: any[]) => {
             const rowDays: any[] = [];
             week.forEach((day) => {
@@ -134,8 +150,9 @@ export class AmexioCalendarComponent1 implements OnInit {
                 }
                 rowDays.push(day);
             });
-            this.calendarMonthData.push(rowDays);
+            calendarMonthData.push(rowDays);
         });
+        return calendarMonthData;
     }
 
     private createDaysForCurrentWeek(selectedPeriod: any) {
@@ -174,7 +191,7 @@ export class AmexioCalendarComponent1 implements OnInit {
         });
     }
 
-   
+
     private hasWeekEvent(wsd: any, wholeday: boolean) {
         const adu = new AmexioDateUtils();
         const weekDateSlotStart = adu.getDateWithSecondsZero(wsd.getTime());

@@ -4,6 +4,7 @@
         <div *ngIf="(currentState === 'week')"> {{displayHeaders[0] | date : 'd MMM'}} -
             {{displayHeaders[6] | date : 'd MMM'}} {{displayHeaders[6] | date : 'y'}} </div>
         <div *ngIf="(currentState === 'day')"> {{currrentDate | date : 'd MMMM, y'}} </div>
+        <div *ngIf="(currentState === 'year')"> {{currrentDate | date : 'y'}} </div>
 
         <div class="calendar-navigation">
             <em style="padding-right: 20px;" class="fa fa-chevron-left" aria-hidden="true" (click)="previous()"></em>
@@ -15,10 +16,13 @@
         <button (click)="setState('day')">Day</button>
         <button (click)="setState('week')">Week</button>
         <button (click)="setState('month')">Month</button>
-
+        <button (click)="setState('year')">Year</button>
     </div>
 </div>
 <amexio-calendar-month1 *ngIf="(currentState === 'month')" [headers]="displayHeaders"
-    [calendar-data]="calendarMonthData" [calendar-row]="calendarRow" (onEventClicked)="onMonthEvent($event)"> </amexio-calendar-month1>
+    [calendar-data]="calendarMonthData" [calendar-row]="calendarRow" (onEventClicked)="onMonthEvent($event)">
+</amexio-calendar-month1>
 <amexio-calendar-day-timewise1 *ngIf="(currentState === 'week' || currentState === 'day')" [headers]="displayHeaders"
     [calendar-data]="calendarWeekData" (onEventClicked)="onDayTimeWiseEvent($event)"> </amexio-calendar-day-timewise1>
+<amexio-calendar-year1 *ngIf="(currentState === 'year')" [headers]="displayHeaders" [calendar-data]="calendarMonthData"
+    (onEventClicked)="onMonthEvent($event)"> </amexio-calendar-year1>
