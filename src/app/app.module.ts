@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AmexioWidgetModule, AmexiotimelineComponent, DeviceQueryService} from 'amexio-ng-extensions';
+import {AmexioWidgetModule, AmexiotimelineComponent, DeviceQueryService, AmexioEnterpriseModule} from 'amexio-ng-extensions';
 
 import { AppComponent } from './app.component';
 import { AmexioTypeAheadComponent } from './component/typeahead/typeahead.component';
@@ -30,37 +30,38 @@ import { AmexioCardCEBody } from './component/cards/amexio.body.component';
 import { AmexioCardCEAction } from './component/cards/amexio.action.component';
 import { AmexioBadgeComponent } from './component/badge/badge.component';
 import { DemoComponent } from 'src/app/demo.component';
-import { AmexioCalendarComponent } from './component/calendar/calendar.component';
-import { AmexioCalendarMonth } from './component/calendar/calendar.month';
-import { AmexioCalendarDayTimeWise } from './component/calendar/calendar.daytimewise.component';
+import { AmexioCalendarComponent1 } from './component/calendar/calendar.component';
+import { AmexioCalendarMonthComponent1 } from './component/calendar/calendar.month';
+import { AmexioCalendarDayTimeWiseComponent1 } from './component/calendar/calendar.daytimewise.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AmexioInputHelperComponent,
-    DropDownListComponent,
-    AmexioDropDownComponent1,
-    FilterPipe,
-    TextFieldComponent,
-    FormComponent,
-    AmexiotimelineComponent1,
-    AmexiotimelineeventComponent1,
-    FormGroupComponent,
-    AmexioCardCE,
-    AmexioCardCEBody,
-    AmexioCardCEHeader,
-    AmexioCardCEAction,
-    AmexioBadgeComponent,
-    DemoComponent,
+    // AmexioInputHelperComponent,
+    // DropDownListComponent,
+    // AmexioDropDownComponent1,
+    // FilterPipe,
+    // TextFieldComponent,
+    // FormComponent,
+    // AmexiotimelineComponent1,
+    // AmexiotimelineeventComponent1,
+    // FormGroupComponent,
+    // AmexioCardCE,
+    // AmexioCardCEBody,
+    // AmexioCardCEHeader,
+    // AmexioCardCEAction,
+    // AmexioBadgeComponent,
+    // DemoComponent,
 
-    AmexioCalendarComponent,
-    AmexioCalendarMonth,
-    AmexioCalendarDayTimeWise
+    AmexioCalendarComponent1,
+    AmexioCalendarMonthComponent1,
+    AmexioCalendarDayTimeWiseComponent1
     
   ],
   imports: [
     BrowserModule,
     AmexioWidgetModule,
+    AmexioEnterpriseModule,
     FormsModule,
     ReactiveFormsModule
   ],

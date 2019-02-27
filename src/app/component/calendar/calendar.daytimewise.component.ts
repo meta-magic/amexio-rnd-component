@@ -1,30 +1,24 @@
-import { Component, Input, ViewChild, ElementRef, OnInit } from "@angular/core";
-
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-    selector : 'amexio-calendar-day-timewise',
-    templateUrl : './calendar.daytimewise.component.html'
+    selector: 'amexio-calendar-day-timewise1',
+    templateUrl: './calendar.daytimewise.component.html',
 })
-export class AmexioCalendarDayTimeWise implements OnInit{
+export class AmexioCalendarDayTimeWiseComponent1 implements OnInit {
 
-    @Input('headers') headers : any[];
-
-    @Input('calendar-data') calendaryData : any[];
- 
+    @Input('headers') headers: any[];
+    @Input('calendar-data') calendaryData: any[];
     @ViewChild('headerRow') headerRow: ElementRef;
 
-    width : number;
+    width: number;
 
-    constructor(){
-        
+    constructor() {
     }
 
-    ngOnInit(){
-        debugger;
-        this. width = (this.headerRow.nativeElement.offsetWidth-50)/7;
-        if((this.width-50)>50){
+    ngOnInit() {
+        this.width = (this.headerRow.nativeElement.offsetWidth - 50) / 7;
+        if ((this.width - 50) > 50) {
             this.width = this.width - 50;
         }
     }
-    
 }

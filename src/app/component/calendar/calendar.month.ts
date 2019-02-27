@@ -1,17 +1,15 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 @Component({
-    selector : 'amexio-calendar-month',
-    templateUrl : './calendar.month.html'
+    selector: 'amexio-calendar-month1',
+    templateUrl: './calendar.month.html',
 })
-export class AmexioCalendarMonth {
+export class AmexioCalendarMonthComponent1 {
 
-    @Input('headers') headers : any[];
+    @Input('headers') headers: any[];
 
-    @Input('calendar-data') calendaryData : any[];
+    @Input('calendar-data') calendaryData: any[];
 
-    @Input('calendar-row') calendarRow : any[];
-
-
+    @Input('calendar-row') calendarRow: any[];
 
 }
