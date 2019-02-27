@@ -1,7 +1,7 @@
 import { CALENDAR } from './calendar.const';
 import { CalendarEventModel } from './calendarevent.model';
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AmexioDateUtils } from '../utils/dateutils';
 
 @Component({
@@ -30,7 +30,9 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     @Input('events') events: any[];
 
-    @Input('title') title : string;
+    @Input('title') title: string;
+
+    @Output('onEventClicked') onEventClicked = new EventEmitter<any>();
 
     constructor() {
         this.currentState = CALENDAR.MONTH;
@@ -171,34 +173,48 @@ export class AmexioCalendarComponent1 implements OnInit {
         });
     }
 
+   
     private hasWeekEvent(wsd: any, wholeday: boolean) {
-        const weekDateSlotStart = this.adu.getDateWithSecondsZero(wsd.getTime());
-        const weekDateSlotEnd = this.adu.getDateWithSecondsZero(weekDateSlotStart.getTime());
+        const adu = new AmexioDateUtils();
+        const weekDateSlotStart = adu.getDateWithSecondsZero(wsd.getTime());
+        const weekDateSlotEnd = adu.getDateWithSecondsZero(weekDateSlotStart.getTime());
         weekDateSlotEnd.setHours(weekDateSlotEnd.getHours(), 59);
-        let flag = Object.assign({}, this.weekobject);
-        this.events.forEach((event: any) => {
-            const eventStartDate = this.adu.getDateWithSecondsZero(new Date(event.start).getTime());
-            let isEvent = false;
-            let diff = 0;
-            let diffwithslot = 0;
-            if (event.hasTimeSlot && !wholeday && event.end) {
-                isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime())
-                    && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
-                if (isEvent) {
-                    const eventEndDate = this.adu.getDateWithSecondsZero(new Date(event.end).getTime());
-                    diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
-                    diffwithslot = ((eventStartDate.getTime() - weekDateSlotStart.getTime()) / 1000) / 60;
+        const weekEventObject = Object.assign({}, this.weekobject);
+        if (this.events && this.events.length > 0) {
+            this.events.forEach((event: any) => {
+                const eventStartDate = adu.getDateWithSecondsZero(new Date(event.start).getTime());
+                const isEvent = this.isEventPresent(event, wholeday, eventStartDate, weekDateSlotEnd, weekDateSlotStart);
+                if (event.hasTimeSlot && !wholeday && event.end && isEvent) {
+                    const eventEndDate = adu.getDateWithSecondsZero(new Date(event.end).getTime());
+                    weekEventObject.diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
+                    weekEventObject.diffwithslot = ((eventStartDate.getTime() - weekDateSlotStart.getTime()) / 1000) / 60;
                 }
-            } else if (wholeday && !event.hasTimeSlot) {
-                isEvent = this.adu.isDateEqual(eventStartDate, weekDateSlotStart);
-            }
+                if (isEvent && !weekEventObject.isEvent) {
+                    weekEventObject.hasTimeSlot = event.hasTimeSlot;
+                    weekEventObject.eventDateTime = eventStartDate;
+                    weekEventObject.isEvent = isEvent;
+                    weekEventObject.details = event;
+                    weekEventObject.title = event.title;
+                }
 
-            if (isEvent) {
-                flag = this.getWeekObject(event, eventStartDate, isEvent, diff, diffwithslot);
-            }
-        });
-        return flag;
+            });
+        }
+
+        return weekEventObject;
     }
+
+    private isEventPresent(event: any, wholeday: boolean, eventStartDate: any, weekDateSlotEnd: any, weekDateSlotStart: any) {
+        let isEvent = false;
+        if (event.hasTimeSlot && !wholeday) {
+            if (event.end) {
+                isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
+            }
+        } else if (wholeday && !event.hasTimeSlot) {
+            isEvent = new AmexioDateUtils().isDateEqual(eventStartDate, weekDateSlotStart);
+        }
+        return isEvent;
+    }
+
 
     private getWeekObject(event: any, eventDateTime: any, isEvent: boolean, diff: number, diffwithslot: number): any {
         const flag = Object.assign({}, this.weekobject);
@@ -243,5 +259,13 @@ export class AmexioCalendarComponent1 implements OnInit {
         }
         this.currrentDate = new Date(newDate);
         this.createData(this.currrentDate);
+    }
+
+    onMonthEvent(event: any) {
+        this.onEventClicked.emit(event);
+    }
+
+    onDayTimeWiseEvent(event: any) {
+        this.onEventClicked.emit(event);
     }
 }

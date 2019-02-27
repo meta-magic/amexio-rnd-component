@@ -1,4 +1,4 @@
-amexio-calendar1  table {
+amexio-calendar table {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -9,7 +9,7 @@ amexio-calendar1  table {
     z-index: 1;
 }
 
-amexio-calendar1  button, em {
+amexio-calendar button, em {
     cursor: pointer;
 }
 
@@ -96,6 +96,7 @@ amexio-calendar1  button, em {
     background: lightblue;
     padding: 0px 5px;
     text-align: left;
+    cursor: pointer;
 }
 
 .calendar-ul{
@@ -106,6 +107,7 @@ amexio-calendar1  button, em {
  
 .calendar-li{
      padding-bottom: 5px;
+     cursor: pointer;
 }
 
 .calendar-navigation{

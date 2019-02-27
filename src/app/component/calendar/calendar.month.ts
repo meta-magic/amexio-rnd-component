@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'amexio-calendar-month1',
@@ -12,4 +12,16 @@ export class AmexioCalendarMonthComponent1 {
 
     @Input('calendar-row') calendarRow: any[];
 
+    @Output('onEventClicked') onEventClicked = new EventEmitter<any>();
+
+    constructor() {
+    }
+
+    eventClicked(event: any, eventData: any) {
+        const eventObject = {
+            event: event,
+            this: eventData.details
+        };
+        this.onEventClicked.emit(eventObject);
+    }
 }

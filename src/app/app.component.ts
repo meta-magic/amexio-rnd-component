@@ -92,5 +92,9 @@ export class AppComponent {
       }
     ];
   }
+
+  onEventClicked(event : any){
+    console.log(event);
+  }
 }
 
