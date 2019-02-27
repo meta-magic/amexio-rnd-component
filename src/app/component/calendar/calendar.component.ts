@@ -7,6 +7,7 @@ import { AmexioDateUtils } from '../utils/dateutils';
 @Component({
     selector: 'amexio-calendar1',
     templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.css', './calendar.common.css']
 })
 export class AmexioCalendarComponent1 implements OnInit {
 
