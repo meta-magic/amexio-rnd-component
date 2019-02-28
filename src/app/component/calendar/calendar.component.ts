@@ -1,13 +1,16 @@
+
+
 import { CALENDAR } from './calendar.const';
 import { CalendarEventModel } from './calendarevent.model';
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AmexioDateUtils } from '../utils/dateutils';
 
+
 @Component({
     selector: 'amexio-calendar1',
     templateUrl: './calendar.component.html',
-    styleUrls: ['./calendar.component.css', './calendar.common.css']
+    styleUrls: ['./calendar.component.css', './calendar.common.css'],
 })
 export class AmexioCalendarComponent1 implements OnInit {
 
@@ -16,6 +19,7 @@ export class AmexioCalendarComponent1 implements OnInit {
     calendarWeekData: any[] = [];
     currrentDate: any;
     currentState: string; // month/week/day
+    _calenadrDate: any;
 
     adu: AmexioDateUtils;
 
@@ -33,6 +37,26 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     @Input('title') title: string;
 
+    @Input('calendar-date')
+    set calendardate(v: any) {
+        debugger;
+        if (v != null) {
+            try {
+                this._calenadrDate = v;
+                console.log("In calendar date ", v);
+                this.currrentDate = new Date(v);
+                this.createData(this.currrentDate);
+            } catch (e) {
+                console.log("Unable to parse date ", v);
+                this.currrentDate = new Date();
+            }
+        }
+    }
+
+    get calendardate() {
+        return this._calenadrDate;
+    }
+
     @Output('onEventClicked') onEventClicked = new EventEmitter<any>();
 
     constructor() {
@@ -42,7 +66,6 @@ export class AmexioCalendarComponent1 implements OnInit {
         this.events = [];
         this.adu = new AmexioDateUtils();
         this.weekHeaders = { title: CALENDAR.ALL_DAY_TEXT, daywiseevent: null, time: null };
-
     }
 
     ngOnInit() {
@@ -118,26 +141,26 @@ export class AmexioCalendarComponent1 implements OnInit {
             }
             this.displayHeaders = weekDays;
             this.createDaysForCurrentWeek(selectedPeriod);
-        } if (this.currentState === CALENDAR.YEAR) {
-            this.displayHeaders = CALENDAR.DAY_NAME[CALENDAR.SHORT];            
+        } else if (this.currentState === CALENDAR.YEAR) {
+            this.displayHeaders = CALENDAR.DAY_NAME[CALENDAR.SHORT];
             this.calendarMonthData = this.createYearData();
         }
     }
 
-    private createYearData() : any[]{
+    private createYearData(): any[] {
         const yearData = [];
         const year = this.currrentDate.getUTCFullYear();
         const months = CALENDAR.MONTH_NAME[CALENDAR.FULL];
         for (let i = 0; i < months.length; i++) {
             const monthDate = new Date(year, i, 1);
-            const monthData1 = this.createDaysForCurrentMonths(monthDate, new Date());                
-            yearData.push(Object.assign({},{ month: monthDate, title: months[i], data: monthData1 }));
+            const monthData1 = this.createDaysForCurrentMonths(monthDate, new Date());
+            yearData.push(Object.assign({}, { month: monthDate, title: months[i], data: monthData1 }));
         }
         return yearData;
     }
 
     private createDaysForCurrentMonths(selectedPeriod: any, currrentDate: any): any[] {
-        const calendarMonthData = [];
+        const calendarMonthData: any[] = [];
         const monthData: any[] = this.adu.createDaysForMonths(selectedPeriod, currrentDate);
         monthData.forEach((week: any[]) => {
             const rowDays: any[] = [];
@@ -146,7 +169,7 @@ export class AmexioCalendarComponent1 implements OnInit {
                 if (eventDetails && eventDetails.isEvent) {
                     day.eventDetails = eventDetails;
                     day.isEvent = eventDetails.isEvent;
-
+                    debugger;
                 }
                 rowDays.push(day);
             });
@@ -157,7 +180,6 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     private createDaysForCurrentWeek(selectedPeriod: any) {
         this.calendarWeekData = [];
-
         const allday = Object.assign({}, this.weekHeaders);
         allday.daywiseevent = [];
         this.displayHeaders.forEach((date: any) => {
@@ -184,13 +206,15 @@ export class AmexioCalendarComponent1 implements OnInit {
                     title: eventDetails1.title, eventdatetime: dateTime1,
                     isEvent: eventDetails1.isEvent, eventDetails: eventDetails1,
                 };
+                if (weekobj.isEvent) {
+                    debugger;
+                }
                 daywiseevent.push(weekobj);
             });
             timeDataDayWise['daywiseevent'] = daywiseevent;
             this.calendarWeekData.push(timeDataDayWise);
         });
     }
-
 
     private hasWeekEvent(wsd: any, wholeday: boolean) {
         const adu = new AmexioDateUtils();
@@ -204,7 +228,15 @@ export class AmexioCalendarComponent1 implements OnInit {
                 const isEvent = this.isEventPresent(event, wholeday, eventStartDate, weekDateSlotEnd, weekDateSlotStart);
                 if (event.hasTimeSlot && !wholeday && event.end && isEvent) {
                     const eventEndDate = adu.getDateWithSecondsZero(new Date(event.end).getTime());
-                    weekEventObject.diff = ((eventEndDate.getTime() - eventStartDate.getTime()) / 1000) / 60;
+                    debugger;
+                    if (eventEndDate.getDate() > eventStartDate.getDate()) {
+                        const ed = new Date(eventStartDate.getTime());
+                        ed.setHours(eventEndDate.getHours());
+                        weekEventObject.diff = ((ed.getTime() - eventStartDate.getTime()) / 1000) / 60
+                    } else {
+                        weekEventObject.diff = (((eventEndDate.getTime() - eventStartDate.getTime())
+                            - (86400000 * Math.floor((eventEndDate - eventStartDate) / 86400000))) / 1000) / 60;
+                    }
                     weekEventObject.diffwithslot = ((eventStartDate.getTime() - weekDateSlotStart.getTime()) / 1000) / 60;
                 }
                 if (isEvent && !weekEventObject.isEvent) {
@@ -213,6 +245,7 @@ export class AmexioCalendarComponent1 implements OnInit {
                     weekEventObject.isEvent = isEvent;
                     weekEventObject.details = event;
                     weekEventObject.title = event.title;
+
                 }
 
             });
@@ -225,14 +258,14 @@ export class AmexioCalendarComponent1 implements OnInit {
         let isEvent = false;
         if (event.hasTimeSlot && !wholeday) {
             if (event.end) {
-                isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime()) && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
+                isEvent = ((weekDateSlotEnd.getTime() > eventStartDate.getTime())
+                    && (eventStartDate.getTime() >= weekDateSlotStart.getTime()));
             }
         } else if (wholeday && !event.hasTimeSlot) {
             isEvent = new AmexioDateUtils().isDateEqual(eventStartDate, weekDateSlotStart);
         }
         return isEvent;
     }
-
 
     private getWeekObject(event: any, eventDateTime: any, isEvent: boolean, diff: number, diffwithslot: number): any {
         const flag = Object.assign({}, this.weekobject);
@@ -261,12 +294,15 @@ export class AmexioCalendarComponent1 implements OnInit {
             newDate = this.adu.getPrevSunday(newDate);
         } else if (this.currentState === CALENDAR.DAY) {
             newDate.setDate(newDate.getDate() - 1);
+        } else if (this.currentState === CALENDAR.YEAR) {
+            newDate.setUTCFullYear(newDate.getUTCFullYear() - 1);
         }
         this.currrentDate = new Date(newDate);
         this.createData(this.currrentDate);
     }
 
     next() {
+
         let newDate = new Date(this.currrentDate.getTime());
         if (this.currentState === CALENDAR.MONTH) {
             newDate.setMonth(newDate.getMonth() + 1);
@@ -274,6 +310,8 @@ export class AmexioCalendarComponent1 implements OnInit {
             newDate = this.adu.getNextSunday(newDate);
         } else if (this.currentState === CALENDAR.DAY) {
             newDate.setDate(newDate.getDate() + 1);
+        } else if (this.currentState === CALENDAR.YEAR) {
+            newDate.setUTCFullYear(newDate.getUTCFullYear() + 1);
         }
         this.currrentDate = new Date(newDate);
         this.createData(this.currrentDate);

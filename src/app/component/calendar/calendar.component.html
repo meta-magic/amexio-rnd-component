@@ -26,3 +26,7 @@
     [calendar-data]="calendarWeekData" (onEventClicked)="onDayTimeWiseEvent($event)"> </amexio-calendar-day-timewise1>
 <amexio-calendar-year1 *ngIf="(currentState === 'year')" [headers]="displayHeaders" [calendar-data]="calendarMonthData"
     (onEventClicked)="onMonthEvent($event)"> </amexio-calendar-year1>
+
+<pre>
+{{calendarMonthData|json}}    
+</pre>    
