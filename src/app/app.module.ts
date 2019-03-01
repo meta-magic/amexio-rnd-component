@@ -34,6 +34,7 @@ import { AmexioCalendarComponent1 } from './component/calendar/calendar.componen
 import { AmexioCalendarMonthComponent1 } from './component/calendar/calendar.month';
 import { AmexioCalendarDayTimeWiseComponent1 } from './component/calendar/calendar.daytimewise.component';
 import { AmexioCalendarYearComponent1 } from './component/calendar/calendar.year.component';
+import { DataService } from './component/service/dataservice';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { AmexioCalendarYearComponent1 } from './component/calendar/calendar.year
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DeviceQueryService],
+  providers: [DeviceQueryService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -37,6 +37,8 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     @Input('title') title: string;
 
+    @Input('event-color-grouping') eventColorGrouping: boolean;
+
     @Input('calendar-date')
     set calendardate(v: any) {
         debugger;
@@ -66,6 +68,7 @@ export class AmexioCalendarComponent1 implements OnInit {
         this.events = [];
         this.adu = new AmexioDateUtils();
         this.weekHeaders = { title: CALENDAR.ALL_DAY_TEXT, daywiseevent: null, time: null };
+        this.eventColorGrouping = false;
     }
 
     ngOnInit() {
@@ -79,9 +82,16 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     private validateEventData() {
         const newEvents: any[] = [];
+        let i = 1;
         this.events.forEach((event: any) => {
             if ((event.start + '').indexOf('T') !== -1) {
                 event.hasTimeSlot = true;
+            }
+            if (i > 9) {
+                i = 1;
+            }
+            if (this.eventColorGrouping) {
+                event['eventclass'] = 'calendar-active-' + i;
             }
             if (event.end) {
                 const events1 = this.generatEventData(new Date(event.start), new Date(event.end));
@@ -91,10 +101,15 @@ export class AmexioCalendarComponent1 implements OnInit {
                     newEvents.push(newobj);
                 });
             }
+            i++;
         });
         newEvents.forEach((event) => {
             this.events.push(event);
         });
+    }
+
+    private assignColorToEvents() {
+
     }
 
     private generatEventData(startDate: any, endDate: any) {
@@ -323,5 +338,27 @@ export class AmexioCalendarComponent1 implements OnInit {
 
     onDayTimeWiseEvent(event: any) {
         this.onEventClicked.emit(event);
+    }
+
+    onYearEvent(event: any) {
+        this.navigateToDayMode(event.this.date);
+    }
+
+    onDaytimeHeaderClick(event: any) {
+        if (this.currentState === CALENDAR.WEEK) {
+            this.navigateToDayMode(event);
+        }
+    }
+
+    onYearHeaderClicked(event: any) {
+        this.currrentDate = new Date(event.month);
+        this.currentState = CALENDAR.MONTH;
+        this.createData(this.currrentDate);
+    }
+
+    navigateToDayMode(date: any) {
+        this.currentState = CALENDAR.DAY
+        this.currrentDate = new Date(date);
+        this.createData(this.currrentDate);
     }
 }

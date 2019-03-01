@@ -1,18 +1,43 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Employee } from './component/models/emp.model';
 import { ControlContainer, NgForm } from '@angular/forms';
+import { DataService } from './component/service/dataservice';
+import { Subscription } from 'rxjs';
+
+
+declare var SockJS: any;
+declare var Stomp: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   contactList: any = [];
   events: any[];
 
-  constructor() {
-    this.calendarDate = new Date(1552300217755);
+  sub: Subscription;
+  ngOnInit() {
+   
+    let stompClient: any;
+    const socket = new SockJS('http://localhost:8080/chat');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+
+      console.log('Connected: ' + frame);
+      stompClient.subscribe('/topic/messages', function (messageOutput) {
+        console.log(messageOutput.body);
+      });
+    });
+  }
+  constructor(private dataService: DataService) {
+    // this.sub = this.dataService.getQuotes()
+    //     .subscribe(quote => {
+    //       console.log(quote);
+    //     });
+
+    this.calendarDate = new Date(1551697131284);
     this.events = [
       {
         "title": "Kubernetes Workshop",
@@ -77,17 +102,17 @@ export class AppComponent {
       {
         "title": "All Hands Meeting",
         "start": "2019-02-28T10:15:00",
-        "end": "2019-02-28T10:15:00"
+        "end": "2019-02-28T10:30:00"
       },
       {
         "title": "All Hands Meeting",
         "start": "2019-04-30T10:15:00",
-        "end": "2019-04-30T10:15:00"
+        "end": "2019-04-30T10:30:00"
       },
       {
         "title": "All Hands Meeting",
         "start": "2019-05-31T10:15:00",
-        "end": "2019-05-31T10:15:00"
+        "end": "2019-05-31T10:30:00"
       },
       {
         "title": "Technology Conference",
@@ -96,11 +121,11 @@ export class AppComponent {
       {
         "title": "All Hands Meeting",
         "start": "2019-03-22T10:15:00",
-        "end": "2019-03-22T12:15:00"
+        "end": "2019-03-22T12:30:00"
       }
     ];
     // this.events = [
-      
+
     // {
     //   "title": "Kubernetes Batch 1",
     //   "start": "2019-02-22T10:00:00",
@@ -151,6 +176,8 @@ export class AppComponent {
       }
     ];
   }
+
+
 
   calendarDate = new Date();
   onEventClicked(event: any) {

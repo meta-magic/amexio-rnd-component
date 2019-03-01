@@ -15,18 +15,23 @@ export class AmexioCalendarDayTimeWiseComponent1 implements OnInit {
 
     @Output('onEventClicked') onEventClicked = new EventEmitter<any>();
 
+    @Output('onHeaderClicked') onHeaderClicked = new EventEmitter<any>();
+
     width: number;
 
     constructor() {
     }
 
     ngOnInit() {
+        
+    }
+
+    onResize(){
         this.width = (this.headerRow.nativeElement.offsetWidth - 50) / 7;
         if ((this.width - 50) > 50) {
             this.width = this.width - 50;
         }
     }
-
     eventClicked(event: any, eventData: any) {
         debugger;
         const eventObject = {
@@ -34,5 +39,9 @@ export class AmexioCalendarDayTimeWiseComponent1 implements OnInit {
             this: eventData.eventDetails.details,
         };
         this.onEventClicked.emit(eventObject);
+    }
+
+    onHeaderClick(event: any){
+        this.onHeaderClicked.emit(event);
     }
 }
