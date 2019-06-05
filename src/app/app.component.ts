@@ -16,8 +16,14 @@ declare var Stomp: any;
 export class AppComponent implements OnInit {
   contactList: any = [];
   events: any[];
-
+  username : string;
+  
   sub: Subscription;
+  ngModelChange(event:any){
+    
+    this.username = event;
+    console.log('AppComponent ',event);
+  }
   ngOnInit() {
    
     let stompClient: any;

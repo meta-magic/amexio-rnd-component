@@ -25,6 +25,7 @@ export abstract class ValueAccessorBase<T> implements ControlValueAccessor {
     
     // From ControlValueAccessor interface
     writeValue(value: any) {
+      debugger;
       if (value !== this.innerValue) {
         this.innerValue = value;
       }

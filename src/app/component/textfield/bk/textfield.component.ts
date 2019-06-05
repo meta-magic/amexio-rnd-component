@@ -1,6 +1,6 @@
 import { OnInit, Component, forwardRef, Input, ViewChild } from "@angular/core";
 import { Validators, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgModel, FormControl } from "@angular/forms";
-import { ValueAccessorBase } from "../base/value-accessor";
+import { ValueAccessorBase } from "../../base/value-accessor";
 
 @Component({
     selector: 'amexio-text-component',
@@ -22,6 +22,11 @@ export class TextFieldComponent extends ValueAccessorBase<string> implements Val
     @Input('name') name : string;
 
     @Input('required') required : boolean;
+
+    @Input('placeholder') placeholder : string;
+
+    @Input('data-valid-example') datavalidexample : string;
+    
 
     @ViewChild(NgModel) model: NgModel;
     

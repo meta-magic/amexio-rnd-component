@@ -1,0 +1,11 @@
+<amexio-text-input1 amexio-input-pattern="(1[0-2]|0[1-9])\/\d\d"   
+    [placeholder]="'DD/MM/YYYY'" [field-label]="'User Name'"
+    [(ngModel)]="username"></amexio-text-input1>
+<br />
+
+<amexio-text-input1 amexio-input-pattern="\d{5}"   
+    [placeholder]="'XXXXX'" [field-label]="'Zip'"
+    [(ngModel)]="zip"></amexio-text-input1>
+<br />
+
+{{username}} - {{zip}}

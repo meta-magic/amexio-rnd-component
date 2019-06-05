@@ -12,7 +12,7 @@ import { AmexioInputHelperComponent } from './component/base/input.helper.compon
 import { AmexioLayout } from './component/layout/layout.component';
 import { AmexioLayoutItem } from './component/layout/layoutitem.component';
 import { RadioGroupComponent } from './component/radio/radiogroup.component';
-import { TextFieldComponent } from './component/textfield/textfield.component';
+import { TextFieldComponent } from './component/textfield/bk/textfield.component';
 import { FormComponent } from './component/form/form.component';
 import { CustomComponentvaldiation } from './component/base/required.directive';
 import { CheckGroupComponent } from './component/checkgroup/checkgroup.component';
@@ -35,6 +35,8 @@ import { AmexioCalendarMonthComponent1 } from './component/calendar/calendar.mon
 import { AmexioCalendarDayTimeWiseComponent1 } from './component/calendar/calendar.daytimewise.component';
 import { AmexioCalendarYearComponent1 } from './component/calendar/calendar.year.component';
 import { DataService } from './component/service/dataservice';
+import { AmexioInputPattern } from './directive/AmexioInputPattern';
+import { AmexioTextInputComponent1 } from './component/textfield/textinput.component';
 
 @NgModule({
   declarations: [
@@ -54,12 +56,13 @@ import { DataService } from './component/service/dataservice';
     // AmexioCardCEAction,
     // AmexioBadgeComponent,
     // DemoComponent,
-
+    AmexioTextInputComponent1,
+    TextFieldComponent,
     AmexioCalendarComponent1,
     AmexioCalendarMonthComponent1,
     AmexioCalendarDayTimeWiseComponent1,
     AmexioCalendarYearComponent1,
-    
+    AmexioInputPattern
   ],
   imports: [
     BrowserModule,
